@@ -1,0 +1,260 @@
+---
+title: 'Integrazioni API'
+description: 'Connetti Grip AI ai tuoi sistemi tramite chiamate API durante le conversazioni'
+---
+
+# Integrazioni API
+
+Grip AI può chiamare le tue API durante le conversazioni per recuperare o inviare dati in tempo reale.
+
+## Quando Usare
+
+Usa le API quando l'assistente deve:
+- Verificare lo stato di un ordine
+- Cercare un cliente nel CRM
+- Creare un ticket di supporto
+- Controllare disponibilità prodotto
+- Aggiornare dati in tempo reale
+
+## Setup Base
+
+### 1. Configura Endpoint in Dashboard
+
+Vai in **Strumenti → Integrazioni API → Nuova Integrazione**
+
+```
+Nome: Verifica Ordini
+URL Base: https://api.tuodominio.com
+Metodo: GET
+Endpoint: /orders/{order_id}/status
+```
+
+### 2. Autenticazione
+
+Scegli il metodo appropriato:
+
+<Tabs>
+  <Tab title="API Key">
+    ```
+    Header: X-API-Key
+    Valore: sk_live_abc123xyz789
+    ```
+  </Tab>
+  
+  <Tab title="Bearer Token">
+    ```
+    Header: Authorization
+    Valore: Bearer your_token_here
+    ```
+  </Tab>
+  
+  <Tab title="Basic Auth">
+    ```
+    Username: api_user
+    Password: api_password
+    ```
+  </Tab>
+</Tabs>
+
+### 3. Definisci Parametri
+
+Specifica quali dati l'AI deve raccogliere prima di chiamare l'API:
+
+```json
+{
+  "parameters": {
+    "order_id": {
+      "type": "string",
+      "required": true,
+      "description": "Numero ordine formato ORD-XXXXX"
+    }
+  }
+}
+```
+
+### 4. Istruzioni nel Prompt
+
+Aggiungi al system prompt:
+
+```markdown
+## Verifica Ordini
+
+Quando cliente chiede "dov'è il mio ordine":
+
+1. Chiedi numero ordine: "Può fornirmi il numero d'ordine?"
+2. Valida formato: deve iniziare con ORD-
+3. Usa API: get_order_status
+4. Comunica risultato:
+   - Se "shipped": "Il suo ordine è stato spedito ed è in consegna [data]"
+   - Se "processing": "Il suo ordine è in elaborazione, spedizione entro 24h"
+   - Se "delivered": "Il suo ordine è stato consegnato il [data]"
+5. Se API fallisce: "Non riesco ad accedere al sistema. Può riprovare tra poco?"
+```
+
+## Esempi Pratici
+
+### GET Request - Recupera Dati
+
+```http
+GET https://api.tuodominio.com/customers?phone=+393331234567
+Authorization: Bearer token123
+```
+
+**Response:**
+```json
+{
+  "customer_id": "CUST-123",
+  "name": "Mario Rossi",
+  "tier": "VIP",
+  "open_tickets": 2
+}
+```
+
+**L'AI usa questi dati nella conversazione:**
+"Buongiorno Sig. Rossi, vedo che ha 2 ticket aperti..."
+
+### POST Request - Crea Dati
+
+```http
+POST https://api.tuodominio.com/tickets
+Content-Type: application/json
+Authorization: Bearer token123
+
+{
+  "customer_id": "CUST-123",
+  "subject": "Problema con ordine",
+  "description": "Prodotto danneggiato",
+  "priority": "high"
+}
+```
+
+**Response:**
+```json
+{
+  "ticket_id": "TICKET-456",
+  "status": "created"
+}
+```
+
+**L'AI conferma:**
+"Ho creato il ticket #456. Riceverà aggiornamenti via email."
+
+## Gestione Errori
+
+L'AI deve gestire risposte di errore:
+
+| Status Code | Comportamento AI |
+| :--- | :--- |
+| **200-299** | Successo - comunica risultato |
+| **404** | "Non trovo questo ordine. Può verificare il numero?" |
+| **401/403** | "Problema tecnico. La faccio richiamare." |
+| **500** | "Sistema momentaneamente non disponibile. Riprovi tra poco." |
+| **Timeout** | "Il sistema sta impiegando troppo tempo. Preferisce attendere?" |
+
+## Configurazione Avanzata
+
+### Parametri Dinamici
+
+```json
+{
+  "path": "/customers/{customer_id}/orders/{order_id}",
+  "parameters": {
+    "customer_id": {
+      "type": "string",
+      "required": true
+    },
+    "order_id": {
+      "type": "string",
+      "required": true
+    },
+    "include_items": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
+```
+
+### Retry Policy
+
+```json
+{
+  "timeout": 5000,
+  "retry": {
+    "max_attempts": 3,
+    "backoff": "exponential"
+  }
+}
+```
+
+### Response Mapping
+
+Specifica come interpretare la risposta:
+
+```json
+{
+  "response_mapping": {
+    "status": "order_status",
+    "tracking_code": "tracking_number",
+    "eta": "estimated_delivery"
+  }
+}
+```
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Timeout Appropriati" icon="hourglass">
+    Imposta timeout realistici (2-5 secondi). API troppo lente peggiorano l'esperienza.
+  </Accordion>
+  
+  <Accordion title="Validazione Input" icon="check">
+    Fai validare i parametri all'AI prima di chiamare (es. formato numero ordine).
+  </Accordion>
+  
+  <Accordion title="Fallback" icon="life-ring">
+    Dai sempre alternative se API fallisce (callback, email, numero diretto).
+  </Accordion>
+  
+  <Accordion title="Security" icon="lock">
+    - Usa HTTPS sempre
+    - API key con minimi permessi necessari
+    - Rate limiting sul tuo server
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="API non risponde" icon="circle-xmark">
+    **Check:**
+    - URL corretto?
+    - Firewall blocca IP Grip?
+    - Autenticazione corretta?
+    - Test con curl/Postman
+  </Accordion>
+  
+  <Accordion title="Autenticazione fallisce" icon="key">
+    - Verifica API key corretta (no spazi)
+    - Header name esatto (case-sensitive)
+    - Token non scaduto
+  </Accordion>
+  
+  <Accordion title="Dati non corretti" icon="exclamation">
+    - Controlla response nei log Grip
+    - Verifica response mapping
+    - Valida formato JSON
+  </Accordion>
+</AccordionGroup>
+
+## Prossimi Passi
+
+<CardGroup cols={2}>
+  <Card title="Pre-call API" icon="phone-arrow-up-right" href="/strumenti/pre-call-api">
+    Carica dati prima che la chiamata inizi
+  </Card>
+  
+  <Card title="Inoltro Transcript" icon="file-export" href="/strumenti/inoltro-transcript">
+    Invia trascrizioni ai tuoi sistemi
+  </Card>
+</CardGroup>

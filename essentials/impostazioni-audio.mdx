@@ -1,0 +1,364 @@
+---
+title: 'Impostazioni Audio'
+description: 'Configura qualità voce, velocità e sensibilità dell''assistente'
+---
+
+# Impostazioni Audio
+
+Qui trovi tutte le impostazioni tecniche per ottimizzare l'audio del tuo assistente AI.
+
+Nelle impostazioni audio puoi controllare:
+- Modello di elaborazione vocale
+- Velocità di parlata
+- Sensibilità interruzioni
+
+## Modello di Elaborazione Vocale
+
+Il modello determina quale tecnologia viene usata per convertire la voce in testo. Ci sono differenze tecniche importanti da considerare.
+
+<Tabs>
+  <Tab title="Deepgram (Consigliato)">
+    **Caratteristiche:**
+    - Latenza minima (~200ms)
+    - Massima precisione
+    - Server USA
+    
+    **Quando usare:**
+    Quando la velocità di risposta è prioritaria e la GDPR non è vincolante.
+    
+    **Nota:** Attualmente il migliore per velocità e accuratezza.
+  </Tab>
+  
+  <Tab title="Azure Europa">
+    **Caratteristiche:**
+    - GDPR compliant (server EU)
+    - Latenza maggiore (+700ms)
+    - Buona precisione
+    
+    **Quando usare:**
+    Quando devi essere completamente conforme GDPR e i dati devono rimanere in Europa.
+  </Tab>
+  
+  <Tab title="Google Cloud">
+    **Caratteristiche:**
+    - Ottima per multilingua
+    - Latenza media (~400ms)
+    - Server EU disponibili
+    
+    **Quando usare:**
+    Quando hai chiamate in molte lingue diverse.
+  </Tab>
+</Tabs>
+
+### Confronto Performance
+
+| Modello | Latenza | GDPR EU | Lingue | Consigliato per |
+| :--- | :--- | :--- | :--- | :--- |
+| **Deepgram** | ~200ms | ❌ | 30+ | Massima velocità |
+| **Azure Europa** | ~900ms | ✅ | 40+ | Compliance EU |
+| **Google Cloud** | ~400ms | ✅ | 100+ | Multilingua |
+
+<Info>
+  **Consiglio:** Inizia con Deepgram per testare. Se devi essere GDPR-compliant, passa ad Azure Europa.
+</Info>
+
+## Velocità di Parlata
+
+Controlla quanto velocemente l'assistente parla.
+
+**Range:** 0.75x (lento) → 1.5x (veloce)  
+**Default:** 1.0x (normale)
+
+### Come Scegliere
+
+```
+👴 Target anziani → 0.8x - 0.9x
+👔 Business professionale → 1.0x - 1.1x
+⚡ Clienti giovani/tech → 1.1x - 1.3x
+📞 Call center veloce → 1.2x - 1.4x
+```
+
+<Warning>
+  Velocità >1.3x può sembrare innaturale. Testa sempre con utenti reali.
+</Warning>
+
+### Esempio Configurazione
+
+**Receptionist professionale:**
+```
+Velocità: 1.0x
+Motivo: Deve essere chiaro e professionale
+```
+
+**Supporto tecnico:**
+```
+Velocità: 0.9x
+Motivo: Informazioni complesse richiedono tempo
+```
+
+**Conferma appuntamenti:**
+```
+Velocità: 1.1x
+Motivo: Interazione breve, info semplici
+```
+
+<Note>
+  La velocità NON influisce sulla latenza di risposta, solo sul tempo di pronuncia.
+</Note>
+
+## Sensibilità Interruzioni
+
+Controlla quanto facilmente l'AI si lascia interrompere dal chiamante.
+
+**Range:** 0 (bassa) → 10 (alta)  
+**Default:** 5 (media)
+
+### Logica
+
+**Sensibilità ALTA (7-10):**
+- L'AI si interrompe facilmente
+- Risponde a ogni suono/parola
+- Conversazione più reattiva
+
+**Sensibilità BASSA (1-3):**
+- L'AI completa le frasi
+- Ignora rumori di fondo
+- Meno interruzioni accidentali
+
+### Quando Modificare
+
+<AccordionGroup>
+  <Accordion title="Sensibilità ALTA (7-10)" icon="volume-high">
+    **Usa quando:**
+    - Clienti anziani (parlano più lentamente)
+    - Ambiente silenzioso
+    - Conversazioni formali
+    - Vuoi che l'AI risponda subito
+    
+    **Esempio:** Receptionist che deve essere molto reattivo
+    
+    **Rischio:** Potrebbe interrompersi per rumori di fondo
+  </Accordion>
+  
+  <Accordion title="Sensibilità MEDIA (4-6)" icon="volume">
+    **Usa quando:**
+    - Situazione standard
+    - Ambiente normale
+    - Non sai quale scegliere
+    
+    **Esempio:** Supporto clienti generico
+    
+    **Default consigliato**
+  </Accordion>
+  
+  <Accordion title="Sensibilità BASSA (1-3)" icon="volume-low">
+    **Usa quando:**
+    - Ambiente rumoroso (cantiere, fabbrica, strada)
+    - Clienti che parlano velocemente
+    - Molte interruzioni accidentali
+    
+    **Esempio:** Supporto per aziende edili
+    
+    **Rischio:** Potrebbe non sentire interruzioni reali
+  </Accordion>
+</AccordionGroup>
+
+### Test Pratico
+
+Per trovare il valore giusto:
+
+<Steps>
+  <Step title="Inizia con 5 (default)">
+    Fai 10 chiamate di test
+  </Step>
+  
+  <Step title="Analizza problemi">
+    - **Se l'AI si interrompe troppo spesso** → Abbassa a 3-4
+    - **Se l'AI non lascia parlare il cliente** → Alza a 6-7
+  </Step>
+  
+  <Step title="Affina gradualmente">
+    Cambia 1 punto alla volta e ri-testa
+  </Step>
+</Steps>
+
+## Configurazioni Consigliate per Settore
+
+### Assistenza Clienti Standard
+
+```
+Modello: Deepgram
+Velocità: 1.0x
+Sensibilità: 5
+```
+
+### Supporto Tecnico
+
+```
+Modello: Azure Europa (GDPR)
+Velocità: 0.9x (info complesse)
+Sensibilità: 6 (lascia cliente interrompere)
+```
+
+### Prenotazioni Ristorante
+
+```
+Modello: Deepgram (velocità)
+Velocità: 1.1x (efficiente)
+Sensibilità: 5
+```
+
+### Call Center Assicurazioni
+
+```
+Modello: Azure Europa (compliance)
+Velocità: 0.95x (professionale)
+Sensibilità: 5
+```
+
+### Supporto Anziani
+
+```
+Modello: Azure Europa
+Velocità: 0.85x (chiaro e lento)
+Sensibilità: 7 (molto reattivo)
+```
+
+### Cantiere/Ambiente Rumoroso
+
+```
+Modello: Deepgram
+Velocità: 1.0x
+Sensibilità: 2-3 (ignora rumori)
+```
+
+## Impostazioni Avanzate
+
+### End of Speech Detection
+
+Tempo di silenzio prima che l'AI consideri terminato il turno del cliente.
+
+```
+Breve (300ms): Conversazioni veloci, cliente esperto
+Media (500ms): Default consigliato
+Lunga (800ms): Cliente riflette, pensa, anziani
+```
+
+### Noise Cancellation
+
+```
+Attiva: Ambiente rumoroso, chiamate da mobile
+Disattiva: Studio registrazione, qualità già alta
+```
+
+<Tip>
+  In ambienti molto rumorosi, combina **Noise Cancellation ON** + **Sensibilità BASSA** per risultati ottimali.
+</Tip>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="AI si interrompe da sola" icon="circle-stop">
+    **Causa:** Sensibilità troppo alta o rumore di fondo
+    
+    **Fix:**
+    1. Abbassa sensibilità a 3-4
+    2. Attiva noise cancellation
+    3. Verifica qualità linea
+  </Accordion>
+  
+  <Accordion title="AI non si lascia interrompere" icon="hand">
+    **Causa:** Sensibilità troppo bassa
+    
+    **Fix:**
+    1. Alza sensibilità a 6-7
+    2. Riduci velocità parlata a 0.9x (più tempo per interrompere)
+  </Accordion>
+  
+  <Accordion title="Latenza alta / risposte lente" icon="hourglass">
+    **Causa:** Modello speech-to-text lento
+    
+    **Fix:**
+    1. Passa a Deepgram (se GDPR lo permette)
+    2. Verifica connessione internet
+    3. Check server status
+  </Accordion>
+  
+  <Accordion title="Trascrizioni sbagliate" icon="text-slash">
+    **Causa:** Audio di bassa qualità o modello non ottimale
+    
+    **Fix:**
+    1. Migliora qualità audio linea
+    2. Prova modello diverso (Google Cloud per italiano)
+    3. Aggiungi vocabolario custom (se disponibile)
+  </Accordion>
+</AccordionGroup>
+
+## Test e Ottimizzazione
+
+### Processo Consigliato
+
+<Steps>
+  <Step title="Baseline">
+    Inizia con impostazioni default:
+    - Deepgram
+    - Velocità 1.0x
+    - Sensibilità 5
+  </Step>
+  
+  <Step title="Raccogli Feedback">
+    Fai 20-30 chiamate reali e annota:
+    - Interruzioni accidentali
+    - Mancate interruzioni
+    - Lamentele su velocità
+  </Step>
+  
+  <Step title="Affina">
+    Modifica UN parametro alla volta
+    
+    **Esempio iterazione:**
+    - Settimana 1: Default (test)
+    - Settimana 2: Sensibilità 3 (meno interruzioni)
+    - Settimana 3: Velocità 1.1x (più veloce)
+    - Settimana 4: Setup finale ottimizzato
+  </Step>
+  
+  <Step title="Monitora">
+    Controlla metriche settimanali:
+    - % chiamate completate
+    - Feedback negativi su audio
+    - Durata media chiamata
+  </Step>
+</Steps>
+
+## Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Testa sempre" icon="flask">
+    Non fidarti delle impostazioni "standard". Testa con il tuo target reale.
+  </Card>
+  
+  <Card title="Un cambio alla volta" icon="1">
+    Cambia un solo parametro per iterazione per capire l'impatto.
+  </Card>
+  
+  <Card title="Ascolta le chiamate" icon="headphones">
+    Riascolta 5-10 chiamate ogni settimana per identificare pattern.
+  </Card>
+  
+  <Card title="Considera il contesto" icon="lightbulb">
+    Ambiente rumoroso? Target anziano? Adatta le impostazioni di conseguenza.
+  </Card>
+</CardGroup>
+
+## Prossimi Passi
+
+<CardGroup cols={2}>
+  <Card title="Voce e Lingua" icon="microphone" href="/comportamento/voce-lingua">
+    Scegli voce e lingua dell'assistente
+  </Card>
+  
+  <Card title="Registrazione" icon="record-vinyl" href="/tecnico/registrazione">
+    Configura registrazione chiamate
+  </Card>
+</CardGroup>

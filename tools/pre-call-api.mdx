@@ -1,0 +1,338 @@
+---
+title: 'Pre-call API'
+description: 'Carica dati del cliente prima che la conversazione inizi'
+---
+
+# Pre-call API
+
+La Pre-call API carica automaticamente dati del chiamante **prima** che la conversazione inizi, permettendo personalizzazione immediata.
+
+## Come Funziona
+
+```
+1. Cliente chiama → 2. Grip estrae numero → 3. Chiama tua API → 4. AI saluta con dati caricati
+```
+
+**Tempo totale:** ~1-2 secondi
+
+## Setup
+
+### 1. Crea Endpoint sul Tuo Server
+
+Grip farà una richiesta GET al tuo endpoint:
+
+```http
+GET https://api.tuodominio.com/grip/caller-context?phone=%2B393331234567
+Authorization: Bearer YOUR_SECRET_TOKEN
+```
+
+### 2. Implementa la Logica
+
+<Tabs>
+  <Tab title="Node.js">
+    ```javascript
+    app.get('/grip/caller-context', authenticate, async (req, res) => {
+      const phone = req.query.phone; // +393331234567
+      
+      // Cerca cliente
+      const customer = await db.customers.findOne({ phone });
+      
+      if (!customer) {
+        return res.json({ is_known: false });
+      }
+      
+      // Restituisci dati
+      res.json({
+        is_known: true,
+        name: customer.name,
+        tier: customer.tier,
+        language: customer.language || 'it'
+      });
+    });
+    ```
+  </Tab>
+  
+  <Tab title="Python">
+    ```python
+    @app.route('/grip/caller-context')
+    def caller_context():
+        phone = request.args.get('phone')
+        
+        customer = db.customers.find_one({'phone': phone})
+        
+        if not customer:
+            return jsonify({'is_known': False})
+        
+        return jsonify({
+            'is_known': True,
+            'name': customer['name'],
+            'tier': customer.get('tier', 'standard'),
+            'language': customer.get('language', 'it')
+        })
+    ```
+  </Tab>
+  
+  <Tab title="PHP">
+    ```php
+    Route::get('/grip/caller-context', function (Request $request) {
+        $phone = $request->query('phone');
+        
+        $customer = Customer::where('phone', $phone)->first();
+        
+        if (!$customer) {
+            return response()->json(['is_known' => false]);
+        }
+        
+        return response()->json([
+            'is_known' => true,
+            'name' => $customer->name,
+            'tier' => $customer->tier ?? 'standard',
+            'language' => $customer->language ?? 'it'
+        ]);
+    });
+    ```
+  </Tab>
+</Tabs>
+
+### 3. Configura in Grip
+
+Dashboard → **Strumenti** → **Pre-call API**
+
+```
+URL: https://api.tuodominio.com/grip/caller-context
+Method: GET
+Authentication: Bearer Token
+Token: your_secret_token_123
+Timeout: 2000ms
+```
+
+### 4. Usa i Dati nel Prompt
+
+Aggiungi al system prompt:
+
+```markdown
+## Dati Pre-caricati
+
+All'inizio di ogni chiamata hai accesso a:
+- is_known: true/false
+- name: Nome cliente
+- tier: "standard", "VIP", "enterprise"
+- language: Codice lingua
+
+## Comportamento
+
+SE is_known = true:
+  - Saluta per nome: "Buongiorno [name]"
+  - SE tier = "VIP": "sono [nome] dal servizio Premium"
+  - ALTRIMENTI: saluto standard
+
+SE is_known = false:
+  - Saluto generico: "Buongiorno, [Azienda]"
+  - Raccogli nome ed email
+```
+
+## Response Format
+
+### Cliente Conosciuto
+
+```json
+{
+  "is_known": true,
+  "customer_id": "CUST-123",
+  "name": "Mario Rossi",
+  "email": "mario@example.com",
+  "tier": "VIP",
+  "language": "it"
+}
+```
+
+### Cliente Sconosciuto
+
+```json
+{
+  "is_known": false,
+  "phone": "+393331234567"
+}
+```
+
+## Campi Opzionali Utili
+
+Puoi aggiungere qualsiasi dato utile:
+
+```json
+{
+  "is_known": true,
+  "name": "Mario Rossi",
+  "tier": "VIP",
+  "open_tickets": 2,
+  "last_order": {
+    "id": "ORD-12345",
+    "status": "shipped",
+    "date": "2024-12-15"
+  },
+  "notes": "Cliente preferisce chiamate al mattino"
+}
+```
+
+L'AI può usare questi dati nella conversazione.
+
+## Performance
+
+<Warning>
+  **Importante:** L'endpoint deve rispondere in **meno di 2 secondi** per non ritardare il saluto iniziale.
+</Warning>
+
+### Ottimizza le Query
+
+```javascript
+// ❌ Lento - multiple query seriali
+const customer = await db.customers.findOne({phone});
+const orders = await db.orders.find({customer_id});
+const tickets = await db.tickets.find({customer_id});
+
+// ✅ Veloce - query parallele
+const [customer, orderCount, ticketCount] = await Promise.all([
+  db.customers.findOne({phone}),
+  db.orders.count({customer_id}),
+  db.tickets.count({customer_id, status: 'open'})
+]);
+```
+
+### Usa Cache
+
+```javascript
+// Cache con Redis (5 minuti)
+const cached = await redis.get(`caller:${phone}`);
+if (cached) return JSON.parse(cached);
+
+const data = await fetchCustomerData(phone);
+await redis.setex(`caller:${phone}`, 300, JSON.stringify(data));
+```
+
+### Indici Database
+
+```sql
+CREATE INDEX idx_customers_phone ON customers(phone);
+```
+
+## Security
+
+<AccordionGroup>
+  <Accordion title="Autenticazione" icon="lock">
+    Valida sempre il Bearer Token:
+    
+    ```javascript
+    if (req.headers.authorization !== `Bearer ${SECRET}`) {
+      return res.status(401).json({error: 'Unauthorized'});
+    }
+    ```
+  </Accordion>
+  
+  <Accordion title="HTTPS Obbligatorio" icon="shield">
+    Grip accetta solo endpoint HTTPS:
+    
+    ```
+    ✅ https://api.tuodominio.com
+    ❌ http://api.tuodominio.com
+    ```
+  </Accordion>
+  
+  <Accordion title="Validate Input" icon="check">
+    Valida il formato telefono:
+    
+    ```javascript
+    const e164Regex = /^\+[1-9]\d{1,14}$/;
+    if (!e164Regex.test(phone)) {
+      return res.status(400).json({error: 'Invalid phone'});
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Timeout" icon="hourglass">
+    **Causa:** Query database lenta
+    
+    **Fix:**
+    - Aggiungi indici
+    - Cache con Redis
+    - Query parallele
+    - Riduci dati restituiti
+  </Accordion>
+  
+  <Accordion title="Cliente Non Trovato" icon="user-xmark">
+    **Causa:** Formato telefono diverso
+    
+    In DB: `3331234567`  
+    Da Grip: `+393331234567`
+    
+    **Fix:** Normalizza prima di cercare
+    ```javascript
+    const normalized = phone.replace(/^\+39/, '');
+    ```
+  </Accordion>
+  
+  <Accordion title="Dati Non Usati dall'AI" icon="brain">
+    **Verifica:**
+    - Dati arrivano? (Dashboard → Logs → Pre-call)
+    - Prompt configurato per usarli?
+    - Campi corretti nel JSON?
+  </Accordion>
+</AccordionGroup>
+
+## Esempio Completo
+
+```javascript
+app.get('/grip/caller-context', authenticate, async (req, res) => {
+  const phone = req.query.phone;
+  
+  try {
+    // Query veloce con join
+    const result = await db.query(`
+      SELECT 
+        c.id, c.name, c.email, c.tier,
+        COUNT(DISTINCT o.id) as total_orders,
+        COUNT(DISTINCT t.id) FILTER (WHERE t.status = 'open') as open_tickets
+      FROM customers c
+      LEFT JOIN orders o ON o.customer_id = c.id
+      LEFT JOIN tickets t ON t.customer_id = c.id
+      WHERE c.phone = $1
+      GROUP BY c.id
+    `, [phone]);
+    
+    if (result.rows.length === 0) {
+      return res.json({is_known: false, phone});
+    }
+    
+    const customer = result.rows[0];
+    
+    res.json({
+      is_known: true,
+      customer_id: customer.id,
+      name: customer.name,
+      email: customer.email,
+      tier: customer.tier,
+      total_orders: customer.total_orders,
+      open_tickets: customer.open_tickets
+    });
+    
+  } catch (err) {
+    console.error(err);
+    res.json({is_known: false, phone}); // Fallback sicuro
+  }
+});
+```
+
+## Prossimi Passi
+
+<CardGroup cols={2}>
+  <Card title="Integrazioni API" icon="plug" href="/strumenti/integrazioni-api">
+    Chiama API durante la conversazione
+  </Card>
+  
+  <Card title="Inoltro Transcript" icon="file-export" href="/strumenti/inoltro-transcript">
+    Ricevi trascrizioni al termine
+  </Card>
+</CardGroup>

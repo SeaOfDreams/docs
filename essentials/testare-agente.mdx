@@ -1,0 +1,136 @@
+---
+title: 'Testare Agente'
+description: 'Guida pratica per collaudare il tuo assistente AI prima del lancio ufficiale'
+---
+
+# Testare Agente
+
+Prima di mettere l'assistente in produzione, è fondamentale testarlo approfonditamente. Questa fase permette di identificare "allucinazioni", correggere il tono di voce e assicurarsi che le integrazioni (API e Calendario) funzionino senza intoppi.
+
+## Test Rapido dalla Dashboard
+
+Il modo più semplice per iniziare è utilizzare lo strumento di test integrato che simula una chiamata reale.
+
+<Steps>
+  <Step title="Accedi all'Area Test">
+    Seleziona il tuo assistente dalla Dashboard e clicca sulla tab **Test**.
+  </Step>
+  
+  <Step title="Avvia la Chiamata">
+    Usa il numero provvisorio fornito o il widget di chiamata via browser. Ti consigliamo di usare il telefono per valutare la qualità audio reale.
+  </Step>
+  
+  <Step title="Simula Scenari Reali">
+    Non limitarti a domande semplici. Prova a:
+    - Interrompere l'AI mentre parla.
+    - Fare domande fuori contesto (es. "Che tempo fa?").
+    - Parlare con rumore di fondo.
+  </Step>
+  
+  <Step title="Analizza il Debug">
+    Dopo la chiamata, controlla il log in **Chiamate**. Guarda dove l'AI ha esitato o dove il recupero delle informazioni dalla Knowledge Base è stato impreciso.
+  </Step>
+</Steps>
+
+---
+
+## Scenari di Test Fondamentali
+
+Usa questa checklist per coprire tutte le casistiche più comuni:
+
+### 1. Test di Conversazione Base
+- [ ] Il saluto iniziale è cordiale e riflette il brand?
+- [ ] L'AI capisce i sinonimi (es. "prenotare" vs "fissare un posto")?
+- [ ] Gestisce correttamente il silenzio del cliente?
+- [ ] La velocità della voce è naturale (né troppo lenta, né troppo veloce)?
+
+### 2. Test delle Funzionalità (Integrazioni)
+- [ ] **Calendario**: Riesce a proporre slot liberi reali?
+- [ ] **Dati**: Registra correttamente email e nomi complessi?
+- [ ] **Transfer**: Se richiesto, trasferisce la chiamata al numero corretto?
+- [ ] **API**: Recupera lo stato degli ordini o i dati dal CRM senza errori?
+
+### 3. Gestione dei Casi Limite (Edge Cases)
+- [ ] **Frustrazione**: Se il cliente è arrabbiato, l'AI rimane calma ed empatica?
+- [ ] **Fuori Ambito**: Se il cliente chiede cose non pertinenti, l'AI lo riporta gentilmente al focus della chiamata?
+- [ ] **Lingua**: Se l'utente cambia lingua o usa un forte accento, l'AI si adatta?
+
+---
+
+## Metriche di Successo
+
+Dopo aver effettuato almeno 20 chiamate di test, compila questa tabella per valutare se l'agente è pronto:
+
+| Metrica | Target | Azione Correttiva |
+| :--- | :--- | :--- |
+| **Latenza (TTFB)** | < 2 secondi | Semplifica il prompt o usa un modello STT più veloce |
+| **Accuratezza KB** | > 90% | Aggiungi più dettagli o FAQ alla Knowledge Base |
+| **Interruzioni** | < 3 per chiamata | Regola la "Sensibilità Interruzione" nelle impostazioni |
+| **Tasso Risoluzione** | > 70% | Migliora le istruzioni sulle procedure da seguire |
+
+---
+
+## Risoluzione dei Problemi (Troubleshooting)
+
+<AccordionGroup>
+  <Accordion title="L'AI inventa informazioni (Allucinazioni)" icon="brain">
+    **Soluzione:**
+    - Rendi il prompt più restrittivo (es. "Rispondi *solo* basandoti sulla Knowledge Base").
+    - Aggiungi esempi di "Cosa non dire" nel sistema.
+    - Verifica che nella KB non ci siano informazioni contraddittorie.
+  </Accordion>
+  
+  <Accordion title="L'AI è troppo lenta a rispondere" icon="bolt-slash">
+    **Soluzione:**
+    - Riduci la lunghezza del prompt di sistema.
+    - Controlla se le chiamate API esterne sono lente (Grip aspetta la risposta dell'API prima di parlare).
+    - Ottimizza il numero di documenti nella Knowledge Base.
+  </Accordion>
+  
+  <Accordion title="L'AI viene interrotta troppo facilmente" icon="hand">
+    **Soluzione:**
+    - Vai in **Impostazioni Audio**.
+    - Abbassa il valore di **Sensibilità Interruzione** (Threshold).
+    - Aumenta il tempo di "Fine del parlato" per evitare che l'AI pensi che il cliente abbia finito quando ha solo fatto una pausa.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Il "Stress Test" del Team
+
+Prima del lancio, assegna dei ruoli ai tuoi colleghi per mettere in difficoltà l'AI:
+
+1. **Il Cliente Confuso**: Cambia idea continuamente sulle date o sui servizi.
+2. **Il Cliente di Fretta**: Risponde a monosillabi e vuole chiudere subito.
+3. **Il Cliente Rumoroso**: Chiama dalla strada o con musica in sottofondo.
+4. **Il Cliente Tecnico**: Fa domande molto specifiche sui dettagli del prodotto.
+
+<Tip>
+  Raccogli i feedback del team tramite un semplice form. Se 3 persone su 4 dicono che l'AI è "troppo robotica", lavora sullo stile del prompt prima di andare live.
+</Tip>
+
+---
+
+## Checklist Finale "Go-Live"
+
+<Warning>
+  **Non attivare il numero reale finché non hai spuntato tutti questi punti:**
+</Warning>
+
+- [ ] Ho testato almeno 30 chiamate con esiti diversi.
+- [ ] Il trasferimento di chiamata verso un operatore umano funziona sempre.
+- [ ] La Knowledge Base copre il 95% delle domande frequenti.
+- [ ] Il tono di voce è stato approvato dal responsabile marketing/comunicazione.
+- [ ] Le automazioni post-chiamata (Email/SMS) arrivano correttamente.
+
+## Prossimi Passi
+
+<CardGroup cols={2}>
+  <Card title="Impostazioni Audio" icon="sliders" href="/tecnico/impostazioni-audio">
+    Affina la voce e la velocità di risposta.
+  </Card>
+  <Card title="Monitoraggio" icon="chart-line" href="/tecnico/registrazione">
+    Impara a leggere gli analytics delle chiamate reali.
+  </Card>
+</CardGroup>

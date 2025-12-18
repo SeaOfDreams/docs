@@ -1,0 +1,120 @@
+---
+title: 'Inoltro Transcript'
+description: 'Ricevi automaticamente le trascrizioni delle chiamate nei tuoi sistemi tramite Webhook'
+---
+
+# Inoltro Transcript
+
+Grip AI può inviare automaticamente le trascrizioni complete delle chiamate al tuo server tramite webhook non appena la conversazione termina.
+
+## Come Funziona il Flusso
+
+Il processo è asincrono e avviene pochi istanti dopo la chiusura della comunicazione:
+
+1. **Fine Chiamata**: La connessione viene interrotta.
+2. **Elaborazione**: Grip AI genera il transcript definitivo, il riassunto e l'analisi del sentiment.
+3. **Webhook POST**: Grip invia un payload JSON al tuo URL configurato.
+4. **Ricezione**: Il tuo server elabora il dato e risponde con un `200 OK`.
+
+**Tempo stimato**: ~30-60 secondi dopo la fine della chiamata.
+
+---
+
+## Setup Tecnico
+
+### 1. Crea Endpoint sul Tuo Server
+
+Configura il tuo server per ricevere una richiesta `POST`. Ecco alcuni esempi per i framework più comuni:
+
+<Tabs>
+  <Tab title="Node.js (Express)">
+    ```javascript
+    app.post('/grip/transcript', authenticate, async (req, res) => {
+      const payload = req.body;
+      
+      try {
+        // Esempio: Salva nel tuo database
+        await db.transcripts.insert({
+          call_id: payload.call_id,
+          phone: payload.phone_number,
+          transcript: payload.transcript,
+          summary: payload.summary,
+          sentiment: payload.sentiment,
+          duration: payload.duration_seconds,
+          created_at: new Date()
+        });
+        
+        res.json({ success: true });
+      } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Errore durante il salvataggio' });
+      }
+    });
+    ```
+  </Tab>
+  
+  <Tab title="Python (Flask)">
+    ```python
+    @app.route('/grip/transcript', methods=['POST'])
+    def transcript_webhook():
+        payload = request.get_json()
+        
+        try:
+            db.transcripts.insert_one({
+                'call_id': payload['call_id'],
+                'phone': payload['phone_number'],
+                'transcript': payload['transcript'],
+                'summary': payload['summary'],
+                'sentiment': payload['sentiment'],
+                'duration': payload['duration_seconds'],
+                'created_at': datetime.utcnow()
+            })
+            return jsonify({'success': True}), 200
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+    ```
+  </Tab>
+</Tabs>
+
+### 2. Configura in Dashboard
+
+Vai su **Strumenti** → **Inoltro Transcript** e inserisci i parametri del tuo endpoint:
+
+- **URL**: `https://api.tuodominio.com/grip/transcript`
+- **Method**: `POST`
+- **Authentication**: `Bearer Token` (Consigliato)
+- **Token**: Il tuo segreto univoco
+
+---
+
+## Formato del Payload (JSON)
+
+Grip invia un oggetto strutturato con tutti i dettagli della conversazione:
+
+```json
+{
+  "call_id": "call_abc123",
+  "phone_number": "+393331234567",
+  "direction": "inbound",
+  "duration_seconds": 165,
+  "transcript": [
+    {
+      "role": "assistant",
+      "content": "Buongiorno, come posso aiutarla?",
+      "timestamp": 0.0
+    },
+    {
+      "role": "user",
+      "content": "Vorrei sapere lo stato del mio ordine.",
+      "timestamp": 3.5
+    }
+  ],
+  "summary": "Il cliente ha chiesto informazioni sulla spedizione dell'ordine ORD-12345.",
+  "sentiment": {
+    "overall": "neutral",
+    "scores": { "positive": 0.25, "neutral": 0.65, "negative": 0.10 }
+  },
+  "entities": {
+    "order_ids": ["ORD-12345"]
+  }
+}

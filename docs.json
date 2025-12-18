@@ -28,7 +28,9 @@
               "essentials/knowledge-base",
               "essentials/lingua",
               "essentials/messaggio-iniziale",
-              "essentials/prompt"
+              "essentials/prompt",
+              "essentials/impostazioni-audio",
+              "essentials/testare-agente"
             ]
           },
           {
@@ -36,12 +38,13 @@
             "pages": [
               "tools/calendar",
               "tools/inoltro-chiamate",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "tools/integrazioni-api",
+              "tools/pre-call-api",
+              "tools/inoltro-transcript"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Numeri di telefono",
             "pages": [
               "ai-tools/cursor",
               "ai-tools/claude-code",
