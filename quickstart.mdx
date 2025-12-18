@@ -1,80 +1,472 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+title: 'Guida Rapida'
+description: 'Crea il tuo primo assistente telefonico AI in meno di 10 minuti'
 ---
 
-## Get started in three steps
+# Guida Rapida Grip AI
 
-Get your documentation site running locally and make your first customization.
+Questa guida ti mostrerà come creare e configurare il tuo primo **assistente telefonico intelligente** in meno di 10 minuti. Alla fine, avrai un assistente che può:
 
-### Step 1: Set up your local environment
+- ✅ Rispondere automaticamente alle chiamate
+- ✅ Raccogliere informazioni dai chiamanti
+- ✅ Inoltrare chiamate in modo intelligente
+- ✅ Programmare richiami
+- ✅ Inviare email di riepilogo
+
+## Prerequisiti
+
+Prima di iniziare, assicurati di avere:
+
+<Check>Account Grip AI attivo</Check>
+<Check>Documentazione aziendale pronta (opzionale ma consigliato)</Check>
+<Check>Informazioni sui sistemi da integrare (CRM, calendario, etc.)</Check>
+
+## Step 1: Creazione Account e Primo Accesso
+
+<Steps>
+  <Step title="Registrazione">
+    Vai su [app.getgrip.ai](https://app.getgrip.ai) e crea il tuo account. Il processo richiede solo pochi minuti.
+  </Step>
+  
+  <Step title="Verifica Email">
+    Controlla la tua email e verifica il tuo account cliccando sul link ricevuto.
+  </Step>
+  
+  <Step title="Primo Accesso">
+    Effettua il login e accedi alla dashboard principale di Grip AI.
+  </Step>
+</Steps>
+
+## Step 2: Creazione del Tuo Primo Assistente
+
+<Steps>
+  <Step title="Nuovo Assistente">
+    Clicca sul pulsante **"Crea Nuovo Assistente"** nella dashboard.
+    
+    <Frame>
+      <img src="/images/create-assistant.png" alt="Crea nuovo assistente" />
+    </Frame>
+  </Step>
+  
+  <Step title="Informazioni Base">
+    Compila i campi base:
+    - **Nome Assistente**: Es. "Assistente Clienti"
+    - **Descrizione**: Breve descrizione del suo ruolo
+    - **Settore**: Seleziona il tuo settore di riferimento
+  </Step>
+</Steps>
+
+## Step 3: Configurazione Knowledge Base
+
+La Knowledge Base è il cuore del tuo assistente. Qui inserisci tutte le informazioni che l'AI utilizzerà per rispondere.
+
+<Tabs>
+  <Tab title="Link Web">
+    ```markdown
+    1. Clicca su "Aggiungi URL"
+    2. Seleziona "Link Web"
+    3. Inserisci l'URL della tua pagina
+    4. Clicca "Importa"
+    ```
+    
+    <Tip>
+      Puoi aggiungere multiple pagine web. L'AI le analizzerà tutte automaticamente.
+    </Tip>
+  </Tab>
+  
+  <Tab title="Documenti">
+    ```markdown
+    1. Clicca su "Carica Documento"
+    2. Seleziona file PDF, Word o TXT
+    3. Attendi l'elaborazione
+    4. Verifica l'importazione
+    ```
+    
+    <Note>
+      Formati supportati: PDF, DOCX, TXT, CSV
+      Dimensione massima: 10MB per file
+    </Note>
+  </Tab>
+  
+  <Tab title="Q&A Personalizzate">
+    ```markdown
+    1. Clicca su "Aggiungi Q&A"
+    2. Inserisci la domanda frequente
+    3. Scrivi la risposta da fornire
+    4. Salva
+    ```
+    
+    <Warning>
+      Usa Q&A per informazioni critiche che devono essere sempre fornite esattamente come le scrivi.
+    </Warning>
+  </Tab>
+</Tabs>
+
+
+
+## Step 4: Definisci la Personalità
+
+Configura come il tuo assistente dovrebbe comportarsi e comunicare.
 
 <AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
+  <Accordion title="Tono di Voce" icon="volume">
+    Scegli il tono appropriato per il tuo brand:
+    - **Professionale**: Formale e cortese
+    - **Amichevole**: Cordiale e rilassato
+    - **Entusiasta**: Energico e positivo
+    - **Empatico**: Comprensivo e rassicurante
   </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
+  
+  <Accordion title="Stile di Comunicazione" icon="comments">
+    Definisci come l'assistente dovrebbe parlare:
+    - Lunghezza delle risposte (breve/media/dettagliata)
+    - Uso di domande di follow-up
+    - Livello di formalità
+  </Accordion>
+  
+  <Accordion title="Istruzioni Speciali" icon="list-check">
+    Aggiungi regole specifiche:
+    ```
+    - Saluta sempre menzionando il nome dell'azienda
+    - Chiedi sempre il nome del chiamante all'inizio
+    - Conferma le informazioni importanti
+    - Ringrazia prima di concludere la chiamata
+    ```
   </Accordion>
 </AccordionGroup>
 
-### Step 2: Deploy your changes
+## Step 5: Seleziona la Voce
 
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
-
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
-
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
-
-### Step 3: Go live
-
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
-
-## Next steps
-
-Now that you have your docs running, explore these key features:
+Grip AI offre più di 50 voci AI diverse. Scegli quella che rappresenta meglio il tuo brand.
 
 <CardGroup cols={2}>
+  <Card title="Voci Italiane" icon="flag">
+    - Sara (Femminile, professionale)
+    - Marco (Maschile, cordiale)
+    - Giulia (Femminile, giovane)
+    - Alessandro (Maschile, maturo)
+  </Card>
+  
+  <Card title="Caratteristiche Vocali" icon="waveform">
+    - Tono caldo ed empatico
+    - Pause naturali
+    - Intonazioni umane
+    - Velocità regolabile
+  </Card>
+</CardGroup>
 
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
+<Tip>
+  **Consiglio Pro**: Testa diverse voci con chiamate di prova prima di scegliere quella definitiva.
+</Tip>
 
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
+## Step 6: Configura il Numero di Telefono
 
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
+Hai due opzioni per il numero telefonico:
 
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
+<Tabs>
+  <Tab title="Numero Dedicato Grip">
+    Il modo più semplice per iniziare:
+    
+    <Steps>
+      <Step title="Richiedi Numero">
+        Clicca su "Ottieni Numero Grip"
+      </Step>
+      <Step title="Scegli Località">
+        Seleziona prefisso e città
+      </Step>
+      <Step title="Conferma">
+        Il numero sarà attivo in pochi minuti
+      </Step>
+    </Steps>
+    
+    **Costo**: €9/mese + costo chiamate
+  </Tab>
+  
+  <Tab title="Usa il Tuo Numero">
+    Integra con il tuo centralino esistente:
+    
+    <Steps>
+      <Step title="Configura SIP">
+        Ottieni le credenziali SIP da Grip
+      </Step>
+      <Step title="Configura Centralino">
+        Segui la guida per il tuo provider
+      </Step>
+      <Step title="Testa Connessione">
+        Verifica che tutto funzioni correttamente
+      </Step>
+    </Steps>
+    
+    <Info>
+      Grip supporta tutti i principali provider SIP italiani ed europei.
+    </Info>
+  </Tab>
+</Tabs>
 
+## Step 7: Configura Funzionalità Avanzate
+
+Aggiungi funzionalità per rendere il tuo assistente ancora più potente:
+
+### Inoltro Chiamate
+
+```javascript
+Quando inoltrare:
+- Richieste complesse che richiedono un umano
+- Chiamate urgenti o emergenze
+- Quando il chiamante lo richiede esplicitamente
+
+Configurazione:
+1. Aggiungi numeri di inoltro del team
+2. Imposta orari di disponibilità
+3. Definisci regole di inoltro intelligente
+```
+
+### Prenotazione Appuntamenti
+
+<Steps>
+  <Step title="Connetti Calendario">
+    Integra con Google Calendar, Outlook o Cal.com
+  </Step>
+  
+  <Step title="Imposta Disponibilità">
+    Definisci orari e durata degli appuntamenti
+  </Step>
+  
+  <Step title="Configura Conferme">
+    Attiva email/SMS di conferma automatici
+  </Step>
+</Steps>
+
+### Integrazione CRM
+
+```markdown
+Salva automaticamente nel CRM:
+- Informazioni chiamante (nome, email, telefono)
+- Motivo della chiamata
+- Note e dettagli discussi
+- Follow-up necessari
+```
+
+## Step 8: Test del Tuo Assistente
+
+Prima di andare live, testa accuratamente il tuo assistente:
+
+<Tabs>
+  <Tab title="Test Base">
+    <AccordionGroup>
+      <Accordion title="1. Chiama il Numero">
+        Effettua una chiamata di test al tuo numero Grip
+      </Accordion>
+      
+      <Accordion title="2. Testa Scenari Comuni">
+        - Richiesta informazioni generali
+        - Prenotazione appuntamento
+        - Segnalazione problema
+        - Richiesta di parlare con un operatore
+      </Accordion>
+      
+      <Accordion title="3. Verifica Risposte">
+        - Le risposte sono accurate?
+        - Il tono è appropriato?
+        - Le informazioni sono complete?
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+  
+  <Tab title="Test Avanzati">
+    <AccordionGroup>
+      <Accordion title="Test Integrazioni">
+        - Verifica che gli appuntamenti vengano creati
+        - Controlla che i dati arrivino al CRM
+        - Testa l'inoltro chiamate
+      </Accordion>
+      
+      <Accordion title="Test Casi Limite">
+        - Domande fuori dal contesto
+        - Informazioni mancanti
+        - Chiamate in lingue diverse
+      </Accordion>
+      
+      <Accordion title="Test Performance">
+        - Tempi di risposta
+        - Qualità audio
+        - Stabilità della connessione
+      </Accordion>
+    </AccordionGroup>
+  </Tab>
+</Tabs>
+
+## Step 9: Attivazione e Monitoraggio
+
+Una volta soddisfatto dei test, attiva il tuo assistente:
+
+<Steps>
+  <Step title="Attivazione">
+    Clicca sul pulsante **"Attiva Assistente"** nella dashboard
+  </Step>
+  
+  <Step title="Comunicazione">
+    Informa il tuo team e i clienti del nuovo servizio
+  </Step>
+  
+  <Step title="Monitoraggio Iniziale">
+    Nei primi giorni, monitora attentamente:
+    - Transcript delle chiamate
+    - Feedback dei clienti
+    - Metriche di performance
+  </Step>
+</Steps>
+
+## Dashboard e Monitoraggio
+
+Dopo l'attivazione, usa la dashboard per monitorare:
+
+<CardGroup cols={2}>
+  <Card title="Statistiche Chiamate" icon="chart-line">
+    - Numero totale chiamate
+    - Durata media
+    - Tasso di risoluzione
+    - Tasso di inoltro
+  </Card>
+  
+  <Card title="Transcript e Registrazioni" icon="file-lines">
+    - Trascrizioni complete
+    - Registrazioni audio
+    - Note e variabili estratte
+    - Feedback automatico
+  </Card>
+  
+  <Card title="Performance AI" icon="brain">
+    - Accuratezza risposte
+    - Tempo di risposta
+    - Livello di confidenza
+    - Aree di miglioramento
+  </Card>
+  
+  <Card title="Integrazioni" icon="plug">
+    - Stato connessioni
+    - Dati sincronizzati
+    - Errori e warning
+    - Log attività
+  </Card>
+</CardGroup>
+
+## Ottimizzazione Continua
+
+Il tuo assistente migliorerà nel tempo. Ecco come ottimizzarlo:
+
+<AccordionGroup>
+  <Accordion title="Analizza i Transcript" icon="magnifying-glass">
+    Rivedi regolarmente le trascrizioni per identificare:
+    - Domande frequenti non coperte
+    - Risposte da migliorare
+    - Nuove situazioni da gestire
+  </Accordion>
+  
+  <Accordion title="Aggiorna Knowledge Base" icon="book">
+    Mantieni aggiornata la base di conoscenza:
+    - Aggiungi nuove FAQ
+    - Aggiorna informazioni cambiate
+    - Rimuovi contenuti obsoleti
+  </Accordion>
+  
+  <Accordion title="Affina il Prompt" icon="wand-magic-sparkles">
+    Migliora le istruzioni del prompt:
+    - Aggiungi esempi di conversazioni
+    - Specifica meglio il comportamento desiderato
+    - Affina il tono e lo stile
+  </Accordion>
+  
+  <Accordion title="Test A/B" icon="flask">
+    Prova diverse configurazioni:
+    - Voci differenti
+    - Variazioni di prompt
+    - Diverse strategie di inoltro
+  </Accordion>
+</AccordionGroup>
+
+## Prossimi Passi
+
+Ora che hai il tuo primo assistente attivo, esplora funzionalità avanzate:
+
+<CardGroup cols={2}>
+  <Card
+    title="Integrazioni Avanzate"
+    icon="puzzle-piece"
+    href="/tecnico/funzioni"
+  >
+    Scopri tutte le integrazioni disponibili
+  </Card>
+  
+  <Card
+    title="Automazioni Post-Chiamata"
+    icon="robot"
+    href="/post-elaborazione/api-request"
+  >
+    Configura azioni automatiche dopo ogni chiamata
+  </Card>
+  
+  <Card
+    title="Gestione Multi-Assistente"
+    icon="users"
+    href="/comportamento/panoramica"
+  >
+    Crea assistenti specializzati per diversi reparti
+  </Card>
+  
+  <Card
+    title="Analytics Avanzati"
+    icon="chart-pie"
+    href="/tecnico/registrazione"
+  >
+    Approfondisci l'analisi delle performance
+  </Card>
+</CardGroup>
+
+## Checklist Finale
+
+Prima di considerare completata la configurazione, verifica:
+
+<Checks>
+  - [ ] Knowledge Base completa e accurata
+  - [ ] Personalità e tono definiti correttamente
+  - [ ] Voce selezionata e testata
+  - [ ] Numero di telefono configurato
+  - [ ] Test chiamate effettuati con successo
+  - [ ] Integrazioni verificate (se attive)
+  - [ ] Team informato sul nuovo assistente
+  - [ ] Dashboard di monitoraggio configurata
+  - [ ] Piano di ottimizzazione definito
+</Checks>
+
+## Hai Bisogno di Aiuto?
+
+<CardGroup cols={2}>
+  <Card
+    title="Supporto Tecnico"
+    icon="life-ring"
+    href="mailto:support@getgrip.ai"
+  >
+    Il nostro team è qui per aiutarti
+  </Card>
+  
+  <Card
+    title="Community Forum"
+    icon="users"
+    href="https://community.getgrip.ai"
+  >
+    Condividi esperienze con altri utenti
+  </Card>
 </CardGroup>
 
 <Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
+  **Tempo di lettura**: 8 minuti  
+  **Tempo di implementazione**: 10-15 minuti  
+  **Difficoltà**: ⭐⭐ Facile
 </Note>
+
+---
+
+<Tip>
+  **Congratulazioni!** 🎉 Hai completato la configurazione del tuo primo assistente Grip AI. Continua a esplorare la documentazione per scoprire tutte le funzionalità avanzate disponibili.
+</Tip>

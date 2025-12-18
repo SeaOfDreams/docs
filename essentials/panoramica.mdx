@@ -1,0 +1,429 @@
+---
+title: 'Comportamento dell''Assistente'
+description: 'Come configurare personalità, voce e comportamento del tuo assistente AI'
+---
+
+# Configurazione Comportamento
+
+Il comportamento del tuo assistente Grip AI determina come interagisce con i chiamanti. Una configurazione accurata garantisce conversazioni naturali, professionali e in linea con il tuo brand.
+
+## Componenti del Comportamento
+
+Il comportamento dell'assistente è composto da diversi elementi interconnessi:
+
+<CardGroup cols={2}>
+  <Card title="Voce e Lingua" icon="microphone" href="/comportamento/voce-lingua">
+    Scegli voce, lingua, velocità e intonazione
+  </Card>
+  
+  <Card title="Messaggio Iniziale" icon="hand-wave" href="/comportamento/messaggio-iniziale">
+    Prima impressione e saluto personalizzato
+  </Card>
+  
+  <Card title="Prompt" icon="brain" href="/comportamento/prompt">
+    Istruzioni dettagliate per guidare l'AI
+  </Card>
+  
+  <Card title="Knowledge Base" icon="book-open" href="/comportamento/knowledge-base">
+    Fonte di conoscenza per tutte le risposte
+  </Card>
+</CardGroup>
+
+## Principi di Base
+
+### 1. Coerenza con il Brand
+
+L'assistente deve riflettere l'identità del tuo brand in ogni interazione.
+
+<Tabs>
+  <Tab title="Brand Professionale">
+    ```markdown
+    Caratteristiche:
+    - Tono formale e rispettoso
+    - Linguaggio tecnico appropriato
+    - Risposte strutturate e precise
+    - Enfasi su affidabilità e competenza
+    
+    Esempio Saluto:
+    "Buongiorno, grazie per aver contattato [Azienda]. 
+    Sono l'assistente virtuale. Come posso aiutarla oggi?"
+    ```
+  </Tab>
+  
+  <Tab title="Brand Amichevole">
+    ```markdown
+    Caratteristiche:
+    - Tono cordiale e accessibile
+    - Linguaggio semplice e diretto
+    - Conversazione naturale
+    - Enfasi su vicinanza e supporto
+    
+    Esempio Saluto:
+    "Ciao! Grazie per aver chiamato [Azienda]. 
+    Sono qui per aiutarti. Cosa posso fare per te oggi?"
+    ```
+  </Tab>
+  
+  <Tab title="Brand Luxury">
+    ```markdown
+    Caratteristiche:
+    - Tono elegante e raffinato
+    - Linguaggio curato e sofisticato
+    - Attenzione ai dettagli
+    - Enfasi su esclusività e qualità
+    
+    Esempio Saluto:
+    "Buongiorno, benvenuto in [Azienda]. 
+    Sono lieto di assisterla. In cosa posso esserle utile?"
+    ```
+  </Tab>
+</Tabs>
+
+### 2. Gestione del Flusso Conversazionale
+
+L'assistente deve guidare la conversazione in modo naturale:
+
+<Steps>
+  <Step title="Apertura">
+    - Saluto caloroso
+    - Presentazione dell'assistente
+    - Domanda aperta per iniziare
+  </Step>
+  
+  <Step title="Ascolto Attivo">
+    - Comprensione della richiesta
+    - Domande di chiarimento se necessario
+    - Conferma della comprensione
+  </Step>
+  
+  <Step title="Risposta">
+    - Informazioni chiare e complete
+    - Riferimenti alla knowledge base
+    - Opzioni o passi successivi
+  </Step>
+  
+  <Step title="Chiusura">
+    - Verifica soddisfazione
+    - Offerta di ulteriore aiuto
+    - Saluto cordiale
+  </Step>
+</Steps>
+
+### 3. Gestione delle Situazioni
+
+#### Informazioni Non Disponibili
+
+```markdown
+Quando l'assistente non conosce una risposta:
+
+❌ NON FARE:
+"Non lo so."
+"Non ho questa informazione."
+
+✅ FARE:
+"Al momento non ho questa informazione specifica. 
+Posso metterti in contatto con un collega che potrà 
+aiutarti meglio, oppure annotare la tua richiesta 
+per un richiamo. Cosa preferisci?"
+```
+
+#### Richieste Complesse
+
+```markdown
+Per situazioni che richiedono un umano:
+
+"Capisco che questa è una situazione che richiede 
+attenzione personalizzata. Ti metto subito in 
+contatto con un membro del nostro team che potrà 
+assisterti al meglio. Un momento, prego."
+```
+
+#### Chiamanti Frustrati
+
+```markdown
+Approccio empatico:
+
+"Capisco perfettamente la tua frustrazione e mi 
+dispiace per l'inconveniente. Voglio aiutarti a 
+risolvere questa situazione nel modo migliore. 
+Puoi dirmi esattamente cosa è successo?"
+```
+
+## Personalizzazione Avanzata
+
+### Variabili Contestuali
+
+Usa variabili per personalizzare le risposte:
+
+```javascript
+Variabili disponibili:
+- {{caller_name}} - Nome del chiamante
+- {{caller_phone}} - Numero di telefono
+- {{company_name}} - Nome della tua azienda
+- {{time_of_day}} - Mattino/Pomeriggio/Sera
+- {{day_of_week}} - Giorno della settimana
+- {{custom_field}} - Campi personalizzati
+
+Esempio d'uso:
+"Buon{{time_of_day}}, {{caller_name}}! 
+Come posso aiutarla oggi?"
+```
+
+### Comportamenti Condizionali
+
+Definisci comportamenti basati su condizioni:
+
+<AccordionGroup>
+  <Accordion title="Orario di Chiamata" icon="clock">
+    ```javascript
+    SE orario = fuori ufficio:
+      - Messaggio di chiusura
+      - Opzione di lasciare messaggio
+      - Offerta di richiamo
+      - Informazioni emergenze
+    
+    SE orario = ufficio:
+      - Saluto standard
+      - Gestione normale richiesta
+      - Opzione inoltro se necessario
+    ```
+  </Accordion>
+  
+  <Accordion title="Tipo di Chiamante" icon="user">
+    ```javascript
+    SE cliente_esistente:
+      - Saluto personalizzato con nome
+      - Accesso a storico ordini/ticket
+      - Riferimenti a interazioni passate
+    
+    SE nuovo_cliente:
+      - Presentazione completa dell'azienda
+      - Raccolta informazioni base
+      - Offerta di assistenza nella navigazione
+    ```
+  </Accordion>
+  
+  <Accordion title="Tipo di Richiesta" icon="comment">
+    ```javascript
+    SE richiesta = supporto_tecnico:
+      - Raccolta dettagli problema
+      - Tentativo risoluzione prima linea
+      - Escalation a tecnici se necessario
+    
+    SE richiesta = vendite:
+      - Qualificazione lead
+      - Presentazione prodotti/servizi
+      - Fissaggio appuntamento commerciale
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Chiarezza e Concisione" icon="lightbulb">
+    - Usa frasi brevi e dirette
+    - Evita gergo tecnico non necessario
+    - Una informazione alla volta
+    - Conferma comprensione prima di proseguire
+    
+    **Esempio**:
+    ```
+    ❌ "Per procedere con l'attivazione del servizio 
+    richiesto, è necessario che tu ci fornisca alcuni 
+    dati anagrafici e informazioni relative al 
+    metodo di pagamento preferito..."
+    
+    ✅ "Per attivare il servizio ho bisogno di alcune 
+    informazioni. Possiamo iniziare? Prima di tutto, 
+    qual è il tuo nome completo?"
+    ```
+  </Accordion>
+  
+  <Accordion title="Ascolto Attivo" icon="ear">
+    - Non interrompere il chiamante
+    - Usa feedback verbali ("capisco", "certo")
+    - Ripeti punti chiave per conferma
+    - Fai domande di chiarimento
+    
+    **Esempio**:
+    ```
+    "Se ho capito bene, stai cercando informazioni 
+    sul nostro servizio di manutenzione per 
+    appartamenti a Milano. È corretto?"
+    ```
+  </Accordion>
+  
+  <Accordion title="Empatia" icon="heart">
+    - Riconosci emozioni del chiamante
+    - Mostra comprensione
+    - Rispondi con tono appropriato
+    - Offri soluzioni, non scuse
+    
+    **Esempio**:
+    ```
+    "Capisco quanto possa essere frustrante questa 
+    situazione. Facciamo così: verifico subito lo 
+    stato del tuo ordine e vedo come possiamo 
+    risolvere al più presto."
+    ```
+  </Accordion>
+  
+  <Accordion title="Proattività" icon="rocket">
+    - Anticipa domande comuni
+    - Offri informazioni correlate
+    - Suggerisci prossimi passi
+    - Fornisci opzioni chiare
+    
+    **Esempio**:
+    ```
+    "Ho prenotato il tuo appuntamento per giovedì 
+    alle 15:00. Ti invierò una conferma via email. 
+    Hai bisogno anche di indicazioni per raggiungerci?"
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Metriche di Qualità
+
+Monitora questi indicatori per valutare l'efficacia del comportamento:
+
+<CardGroup cols={2}>
+  <Card title="Tasso di Risoluzione" icon="check-circle">
+    Percentuale di chiamate risolte senza inoltro umano
+    
+    **Target**: > 70%
+  </Card>
+  
+  <Card title="Durata Media" icon="clock">
+    Tempo medio di gestione chiamata
+    
+    **Target**: 2-5 minuti
+  </Card>
+  
+  <Card title="Feedback Positivo" icon="star">
+    Valutazione media dei chiamanti
+    
+    **Target**: > 4/5
+  </Card>
+  
+  <Card title="Tasso di Abbandono" icon="phone-slash">
+    Chiamate terminate prematuramente
+    
+    **Target**: < 10%
+  </Card>
+</CardGroup>
+
+## Esempi Pratici per Settore
+
+### E-Commerce
+
+```markdown
+Personalità: Amichevole e disponibile
+Priorità: Velocità e accuratezza informazioni
+
+Frasi chiave:
+- "Il tuo ordine [numero] è stato spedito ieri e 
+  arriverà domani."
+- "Posso aiutarti con il reso. Hai bisogno 
+  dell'etichetta di restituzione?"
+- "Questo prodotto è disponibile in 3 colori. 
+  Quale preferisci?"
+```
+
+### Servizi Professionali
+
+```markdown
+Personalità: Professionale e competente
+Priorità: Credibilità e precisione
+
+Frasi chiave:
+- "Sarò lieto di fissarti un appuntamento con il 
+  nostro [specialista]."
+- "Per questa consulenza, il nostro approccio 
+  prevede..."
+- "Ti invierò via email il preventivo dettagliato 
+  entro domani."
+```
+
+### Hospitality
+
+```markdown
+Personalità: Calorosa e accogliente
+Priorità: Esperienza e cura del cliente
+
+Frasi chiave:
+- "Benvenuto! Sarà un piacere ospitarla."
+- "La camera Superior con vista mare è disponibile. 
+  Include..."
+- "Per rendere il suo soggiorno ancora più speciale, 
+  offriamo..."
+```
+
+## Testing e Ottimizzazione
+
+<Steps>
+  <Step title="Test Iniziale">
+    - Prova con il tuo team
+    - Simula scenari comuni
+    - Identifica aree di miglioramento
+  </Step>
+  
+  <Step title="Test Pilota">
+    - Attiva su un sottoinsieme di chiamate
+    - Monitora transcript in tempo reale
+    - Raccogli feedback immediato
+  </Step>
+  
+  <Step title="Ottimizzazione">
+    - Analizza pattern nelle conversazioni
+    - Affina prompt e risposte
+    - Aggiorna knowledge base
+  </Step>
+  
+  <Step title="Rollout Completo">
+    - Attiva su tutte le chiamate
+    - Monitoraggio continuo
+    - Miglioramento iterativo
+  </Step>
+</Steps>
+
+## Prossimi Passi
+
+<CardGroup cols={2}>
+  <Card
+    title="Configura la Voce"
+    icon="microphone"
+    href="/comportamento/voce-lingua"
+  >
+    Scegli la voce perfetta per il tuo assistente
+  </Card>
+  
+  <Card
+    title="Crea il Prompt"
+    icon="pen"
+    href="/comportamento/prompt"
+  >
+    Scrivi istruzioni dettagliate per l'AI
+  </Card>
+  
+  <Card
+    title="Costruisci Knowledge Base"
+    icon="database"
+    href="/comportamento/knowledge-base"
+  >
+    Carica le informazioni essenziali
+  </Card>
+  
+  <Card
+    title="Testa l'Assistente"
+    icon="flask"
+    href="/introduction/quickstart"
+  >
+    Effettua chiamate di prova
+  </Card>
+</CardGroup>
+
+<Tip>
+  **Consiglio**: Il comportamento perfetto richiede iterazioni. Inizia con una configurazione base e affina progressivamente basandoti sui transcript reali.
+</Tip>
