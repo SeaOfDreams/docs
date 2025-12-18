@@ -46,9 +46,16 @@
           {
             "group": "Numeri di telefono",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "phone/generale",
+              "phone/numero-dedicato",
+              "phone/numeri-locali"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+              "FAQ/faq"
+              
             ]
           }
         ]
@@ -57,14 +64,9 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Vai al sito →",
+          "href": "https://getgrip.ai",
+          "icon": "arrow-right"
         }
       ]
     }

@@ -1,0 +1,137 @@
+---
+title: 'Numero Locale'
+description: 'Ottieni un numero con prefisso geografico registrato ufficialmente sulla tua azienda'
+---
+
+# Numeri Locali
+
+Per effettuare chiamate in uscita (outbound) verso i tuoi clienti, è necessario disporre di un **Numero Locale**. Questo numero viene registrato ufficialmente a nome della tua azienda presso le autorità competenti.
+
+<Info>
+  **Perché serve?** Le normative nazionali richiedono che chi effettua chiamate automatiche o via AI utilizzi un numero identificabile e registrato per prevenire lo spam e garantire la trasparenza.
+</Info>
+
+## Quando è Necessario?
+
+<CardGroup cols={2}>
+  <Card title="Chiamate in Uscita" icon="phone-arrow-up-right">
+    È **obbligatorio** per abilitare le funzionalità di outbound. Senza un numero locale registrato, l'assistente può solo ricevere chiamate.
+  </Card>
+  <Card title="Brand Identity" icon="building-columns">
+    Mostra ai clienti un prefisso familiare (es. 02 per Milano, 06 per Roma), aumentando drasticamente il tasso di risposta.
+  </Card>
+</CardGroup>
+
+---
+
+## Requisiti di Registrazione
+
+I documenti richiesti variano in base alla nazione di residenza della società.
+
+
+
+<Tabs>
+  <Tab title="Italia">
+    **Documenti necessari:**
+    - Visura Camerale (emessa negli ultimi 3 mesi).
+    - Documento d'identità del Legale Rappresentante.
+
+    **Limitazioni:**
+    - Supportato: SRL, SPA, SAS, SNC, SRLS.
+    - **Non supportato**: Partita IVA individuale / Liberi professionisti senza iscrizione al Registro Imprese.
+  </Tab>
+  
+  <Tab title="DACH (DE/AT/CH)">
+    **Documenti necessari:**
+    - **Germania**: Handelsregisterauszug.
+    - **Austria**: Firmenbuchauszug.
+    - **Svizzera**: Estratto del Registro di Commercio.
+    
+    *Nota: Il documento non deve superare i 3 mesi di anzianità.*
+  </Tab>
+</Tabs>
+
+---
+
+## Procedura di Attivazione
+
+<Steps>
+  <Step title="Invio Richiesta">
+    Compila il form su [grip.ai/numero-locale](https://grip.ai/numero-locale) con i dati della tua sede legale.
+  </Step>
+  
+  <Step title="Verifica Documentale (KYC)">
+    Il nostro team verifica la validità della Visura Camerale. Questo processo richiede solitamente **3-5 giorni lavorativi**.
+  </Step>
+  
+  <Step title="Assegnazione Prefisso">
+    Una volta approvata, il sistema assegna un numero con il prefisso corrispondente alla tua sede.
+    <Warning>Il prefisso NON è a scelta: deve corrispondere alla provincia della sede legale.</Warning>
+  </Step>
+  
+  <Step title="Configurazione Outbound">
+    Collega il numero al tuo assistente nella Dashboard sotto **Impostazioni** → **Chiamate in Uscita**.
+  </Step>
+</Steps>
+
+---
+
+## Struttura dei Costi
+
+| Voce di Costo | Importo | Frequenza |
+| :--- | :--- | :--- |
+| **Registrazione Iniziale** | €150 | Una Tantum (per prefisso) |
+| **Canone Numero** | €12 | Mensile |
+| **Numeri Extra (stesso prefisso)** | €12 | Mensile (senza costi di setup) |
+
+<Tip>
+  Se hai già pagato i €150 di registrazione per Milano (02), puoi aggiungere un secondo numero 02 pagando solo il canone di €12/mese.
+</Tip>
+
+---
+
+## Tariffe delle Chiamate
+
+Oltre al canone del numero, il traffico telefonico viene tariffato al consumo:
+
+| Destinazione | Costo al Minuto |
+| :--- | :--- |
+| **Entrata (Inbound)** | €0.05 |
+| **Uscita (Outbound) Italia** | €0.08 |
+| **Uscita (Outbound) Europa** | €0.12 |
+| **SMS Inviati** | €0.08 / SMS |
+
+---
+
+## FAQ e Limitazioni
+
+<AccordionGroup>
+  <Accordion title="Posso scegliere il numero finale?" icon="list-ol">
+    No, il numero viene assegnato casualmente dal provider all'interno del range disponibile per il tuo prefisso.
+  </Accordion>
+  
+  <Accordion title="Posso portare il numero su un altro operatore (Portabilità)?" icon="arrow-right-arrow-left">
+    I numeri locali forniti da Grip AI sono numeri virtuali Cloud e non supportano la portabilità in uscita verso operatori tradizionali.
+  </Accordion>
+  
+  <Accordion title="Cosa succede se la Visura è scaduta?" icon="clock-rotate-left">
+    La richiesta verrà rifiutata. Assicurati di scaricare una visura aggiornata (non più vecchia di 90 giorni) prima di caricarla nel form.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Prossimi Passi
+
+<CardGroup cols={2}>
+  <Card title="Campagne Outbound" icon="bullseye-arrow" href="/strumenti/chiamate-uscita">
+    Impara a creare liste di contatti e avviare chiamate massive.
+  </Card>
+  <Card title="Integrazione SIP" icon="network-wired" href="/numeri-sip/panoramica">
+    Hai già un tuo numero aziendale? Scopri come collegarlo tramite SIP Trunk.
+  </Card>
+</CardGroup>
+
+<Note>
+  Hai bisogno di un numero in un paese non elencato? Contatta **support@grip.ai** per verificare la fattibilità tecnica e i requisiti locali.
+</Note>
