@@ -1,0 +1,157 @@
+---
+title: 'Integrazione Calendario'
+description: 'Guida completa per integrare Cal.com e altri sistemi di calendario con Grip AI'
+---
+
+# Integrazione Calendario
+
+L'integrazione del calendario permette al tuo assistente Grip AI di **verificare disponibilità** e **prenotare appuntamenti** in tempo reale durante le chiamate, eliminando il "back-and-forth" e garantendo prenotazioni istantanee.
+
+<Info>
+  **Potente**: Con l'integrazione calendario, il tuo assistente può prenotare appuntamenti mentre parla con il cliente, confermando data e ora in pochi secondi.
+</Info>
+
+## Perché Integrare il Calendario?
+
+<CardGroup cols={2}>
+  <Card title="Prenotazioni Istantanee" icon="bolt">
+    Il cliente ottiene conferma immediata senza dover aspettare email o richiami.
+  </Card>
+  
+  <Card title="Zero Doppi Appuntamenti" icon="shield-check">
+    Il sistema verifica la disponibilità in tempo reale evitando sovrapposizioni.
+  </Card>
+  
+  <Card title="Sincronizzazione Automatica" icon="arrows-rotate">
+    Appuntamenti sincronizzati con Google Calendar, Outlook e Apple Calendar.
+  </Card>
+  
+  <Card title="Riduzione No-Show" icon="user-check">
+    Conferme e reminder automatici riducono le mancate presentazioni del 40-60%.
+  </Card>
+</CardGroup>
+
+---
+
+## Cal.com: La Soluzione Consigliata
+
+**Cal.com** è la nostra integrazione nativa raccomandata. È potente, flessibile e si sposa perfettamente con la logica di Grip AI.
+
+<Tabs>
+  <Tab title="Vantaggi">
+    **Perché scegliere Cal.com:**
+    - **Setup nativo**: Integrazione profonda con i parametri di Grip AI.
+    - **Flessibilità**: Gestione di Round-robin per team e buffer time.
+    - **Sincronizzazione**: Supporta Google, Outlook, Apple e CalDAV.
+    - **Open Source**: Massima trasparenza e nessun vendor lock-in.
+  </Tab>
+  
+  <Tab title="Pricing">
+    | Piano | Costo | Ideale per |
+    | :--- | :--- | :--- |
+    | **Free** | $0 | Singoli utenti o piccoli setup |
+    | **Pro** | $12/mo | Automazioni e pagamenti integrati |
+    | **Teams** | $15/mo | Team che necessitano di routing round-robin |
+
+    <Tip>
+      Per la maggior parte degli use case iniziali con Grip AI, il piano **Free** è più che sufficiente.
+    </Tip>
+  </Tab>
+</Tabs>
+
+---
+
+## Setup Passo-Passo
+
+### 1. Configurazione in Cal.com
+
+<Steps>
+  <Step title="Crea e Connetti">
+    1. Registrati su [Cal.com](https://cal.com/signup).
+    2. Vai in **Apps** e connetti il tuo calendario (es. Google Calendar).
+    3. Crea un **Event Type** (es. "Consulenza Iniziale") impostando durata e orari.
+  </Step>
+  
+  <Step title="Genera API Key">
+    1. Vai in **Settings** → **API Keys**.
+    2. Crea una nuova chiave chiamata "Grip AI".
+    3. **Copia la chiave immediatamente**: non potrai visualizzarla una seconda volta.
+  </Step>
+</Steps>
+
+### 2. Configurazione in Grip AI
+
+<Steps>
+  <Step title="Inserisci Credenziali">
+    Nella Dashboard di Grip AI, vai in **Strumenti** → **Integrazioni** → **Cal.com** e incolla la tua API Key e il tuo username.
+  </Step>
+  
+  <Step title="Abilita Eventi">
+    Seleziona quali tipi di evento l'AI è autorizzata a prenotare. Puoi impostare limiti giornalieri per evitare di sovraccaricare il team.
+  </Step>
+</Steps>
+
+---
+
+## Istruzioni per l'AI (System Prompt)
+
+Copia questa logica all'interno del prompt del tuo assistente per istruirlo su come gestire le date.
+
+<Accordion title="Visualizza Template Prompt per Prenotazioni" icon="calendar-check">
+
+#### LOGICA DI PRENOTAZIONE
+
+**Quando offrire un appuntamento:**
+Proponi la prenotazione solo dopo aver qualificato il cliente o se esprime un interesse specifico che richiede l'intervento di un esperto.
+
+**Flusso di conversazione:**
+1. **Verifica interesse**: "Le andrebbe di fissare un breve incontro per parlarne meglio?"
+2. **Mostra slot**: Offri sempre 2 o 3 opzioni diverse (es. "Ho disponibilità Martedì alle 10:00 o Mercoledì alle 15:00").
+3. **Raccogli dati**: Nome, Email e Numero di telefono sono obbligatori per finalizzare.
+
+**Script di chiusura:**
+"Perfetto, ho prenotato il suo appuntamento per [Data] alle [Ora]. Riceverà a breve una conferma via email con il link per la chiamata."
+
+</Accordion>
+
+---
+
+## Best Practices per il Successo
+
+<AccordionGroup>
+  <Accordion title="Usa il Buffer Time" icon="hourglass">
+    Imposta sempre almeno **10-15 minuti di buffer** tra un appuntamento e l'altro in Cal.com. Questo evita che l'AI prenoti slot consecutivi che non lasciano tempo per le note post-chiamata.
+  </Accordion>
+  
+  <Accordion title="Conferma i Dati Critici" icon="signature">
+    Prima di chiudere la chiamata, chiedi all'AI di ripetere l'email del cliente lettera per lettera o di confermarla chiaramente. Una email errata significa un appuntamento perso.
+  </Accordion>
+  <Accordion title="Gestione Timezone" icon="globe">
+    Se operi a livello internazionale, istruisci l'AI a specificare sempre il fuso orario (es. "15:00 ora di Roma").
+  </Accordion>
+</AccordionGroup>
+
+## Metriche di Performance
+
+| Metrica | Target | Azione se bassa |
+| :--- | :--- | :--- |
+| **Booking Rate** | > 60% | Rendi la proposta di appuntamento più fluida |
+| **Show-up Rate** | > 80% | Attiva i reminder SMS in Cal.com Pro |
+| **Time to Book** | < 3 min | Semplifica le domande poste dall'AI |
+
+---
+
+## Prossimi Passi
+
+<CardGroup cols={2}>
+  <Card title="Inoltro Chiamate" icon="phone-arrow-right" href="/strumenti/inoltro-chiamate">
+    Configura il trasferimento se il cliente ha urgenza immediata.
+  </Card>
+  <Card title="Esempi Pratici" icon="lightbulb" href="/esempi/prenotazione-appuntamenti">
+    Vedi casi d'uso reali per diverse industrie.
+  </Card>
+</CardGroup>
+
+<Warning>
+  **Importante**: Tratta la tua API Key come una password. Se sospetti sia stata compromessa, revocala immediatamente dalla dashboard di Cal.com e generane una nuova.
+</Warning>

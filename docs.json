@@ -12,27 +12,30 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentazione",
         "groups": [
           {
             "group": "Primi passi",
             "pages": [
               "index",
-              "quickstart"
+              "guida-rapida"
             ]
           },
           {
             "group": "Caratteristiche Assistente",
             "pages": [
               "essentials/panoramica",
-              "essentials/navigation"
+              "essentials/knowledge-base",
+              "essentials/lingua",
+              "essentials/messaggio-iniziale",
+              "essentials/prompt"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Tools",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
+              "tools/calendar",
+              "tools/inoltro-chiamate",
               "essentials/images",
               "essentials/reusable-snippets"
             ]

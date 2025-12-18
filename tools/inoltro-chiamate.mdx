@@ -1,0 +1,161 @@
+---
+title: 'Trasferimento di Chiamata'
+description: 'Guida completa per configurare l''inoltro intelligente delle chiamate quando necessario'
+---
+
+# Trasferimento di Chiamata
+
+Il trasferimento di chiamata permette al tuo assistente Grip AI di **inoltrare chiamate** a membri del team umano quando la situazione lo richiede, garantendo che ogni cliente riceva sempre l'assistenza più appropriata.
+
+<Info>
+  **Fondamentale**: Un sistema di trasferimento ben configurato è la rete di sicurezza che trasforma l'AI da "assistente basic" a "soluzione enterprise".
+</Info>
+
+
+
+## Perché il Trasferimento è Importante
+
+<CardGroup cols={2}>
+  <Card title="Gestione Situazioni Complesse" icon="puzzle-piece">
+    Casi che richiedono giudizio umano, decisioni difficili o expertise specifica
+  </Card>
+  
+  <Card title="Escalation Clienti Insoddisfatti" icon="face-frown">
+    Quando un cliente è frustrato e vuole parlare con "una persona vera"
+  </Card>
+  
+  <Card title="Decisioni Oltre Autorità" icon="gavel">
+    Approvazioni, eccezioni policy, trattative che l'AI non può gestire
+  </Card>
+  
+  <Card title="Emergenze" icon="bell">
+    Situazioni urgenti che necessitano intervento umano immediato
+  </Card>
+</CardGroup>
+
+---
+
+## Tipi di Trasferimento
+
+Grip AI supporta diversi tipi di trasferimento:
+
+<Tabs>
+  <Tab title="Trasferimento Diretto">
+    **Cosa Fa:**
+    Trasferisce immediatamente la chiamata a un numero specifico
+    
+    **Quando Usare:**
+    - Emergenze
+    - Richieste specifiche di reparto
+    - Cliente chiede persona specifica
+    
+    **Esempio:**
+    > "La metto subito in contatto con il reparto vendite. Un attimo, prego."
+    
+    **Pro:**
+    - ✅ Veloce e semplice
+    
+    **Contro:**
+    - ❌ Se la linea è occupata, la chiamata potrebbe andare persa
+  </Tab>
+  
+  <Tab title="Trasferimento con Annuncio">
+    **Cosa Fa:**
+    L'AI parla prima con l'operatore umano, poi trasferisce il cliente.
+    
+    **Quando Usare:**
+    - Quando vuoi fornire contesto all'operatore prima che risponda.
+    
+    **Esempio:**
+    > AI → Umano: "Ciao Marco, ho il Sig. Rossi che ha una domanda complessa su [argomento]. Puoi parlare con lui?"
+  </Tab>
+</Tabs>
+
+## Configurazione Base
+
+### 1. Definisci la Struttura di Trasferimento
+
+Mappa la tua organizzazione prima di procedere:
+
+<Steps>
+  <Step title="Identifica Reparti/Persone">
+    Configura i numeri per ogni reparto:
+    * **Vendite**: +39 02 1234567 int. 2
+    * **Supporto**: +39 02 1234567 int. 3
+    * **Amministrazione**: +39 02 1234567 int. 4
+  </Step>
+  
+  <Step title="Definisci Criteri di Routing">
+    Specifica quando l'AI deve passare la mano:
+    - **Vendite**: Richiesta preventivi o demo.
+    - **Supporto**: Problemi tecnici non risolvibili via KB.
+  </Step>
+</Steps>
+
+### 2. Configurazione Prompt
+
+Aggiungi al prompt le istruzioni per l'AI. Usa un Accordion per mantenere pulita la guida.
+
+<Accordion title="Visualizza Template Prompt per Trasferimenti" icon="code">
+
+#### GESTIONE TRASFERIMENTI CHIAMATE
+
+**Principi Generali**
+Prima di trasferire, l'AI deve sempre:
+1. Spiegare perché sta trasferendo.
+2. Chiedere conferma al cliente.
+3. Informare sui tempi di attesa.
+
+**Script Standard**
+"Per aiutarla al meglio con questa pratica, è necessario che io la colleghi con il reparto Amministrazione. Le va bene?"
+
+**Gestione Linea Occupata**
+"Purtroppo l'operatore è occupato. Preferisce essere richiamato o vuole che prenda un messaggio?"
+
+</Accordion>
+
+## Metriche e KPI
+
+Monitorare i trasferimenti è fondamentale per capire se l'AI è efficace.
+
+| Metrica | Target | Descrizione |
+| :--- | :--- | :--- |
+| **Transfer Rate** | 15-25% | Percentuale di chiamate passate all'uomo |
+| **FCR** | > 75% | Risoluzione al primo contatto senza trasferimento |
+| **Success Rate** | > 90% | Percentuale di trasferimenti andati a buon fine |
+
+## Best Practices
+
+<AccordionGroup>
+  <Accordion title="Spiega Sempre Prima" icon="comment">
+    Non trasferire mai "al buio". Spiega al cliente che il trasferimento serve per fornirgli un'assistenza migliore e più specifica.
+  </Accordion>
+  
+  <Accordion title="Chiedi Conferma" icon="circle-check">
+    Assicurati che il cliente sia pronto al trasferimento. Un semplice "Le va bene?" aumenta drasticamente la soddisfazione.
+  </Accordion>
+</AccordionGroup>
+
+## Checklist Finale
+
+<Checks>
+  - [x] Numeri di telefono verificati in formato internazionale
+  - [x] Orari di disponibilità configurati in Dashboard
+  - [x] Script di trasferimento inserito nel System Prompt
+  - [x] Test di failover effettuato (cosa succede se l'umano non risponde?)
+</Checks>
+
+## Prossimi Passi
+
+<CardGroup cols={2}>
+  <Card title="Integrazioni API" icon="plug" href="/strumenti/api-request">
+    Collega il CRM per passare i dati del cliente all'operatore.
+  </Card>
+  <Card title="Analytics" icon="chart-mixed" href="/tecnico/registrazione">
+    Analizza i motivi per cui l'AI trasferisce le chiamate.
+  </Card>
+</CardGroup>
+
+<Tip>
+  **Pro Tip**: Il miglior sistema di trasferimento è quello che non viene usato. Se noti troppi trasferimenti per lo stesso motivo, aggiorna la Knowledge Base dell'AI!
+</Tip>

@@ -1,0 +1,885 @@
+---
+title: 'Messaggio di Benvenuto'
+description: 'Come creare il saluto perfetto che fa la differenza nei primi secondi della chiamata'
+---
+
+# Messaggio di Benvenuto
+
+Il messaggio di benvenuto è il **primo contatto vocale** tra il tuo assistente AI e il chiamante. Ha circa 3-5 secondi per creare la giusta impressione, stabilire il tono e guidare la conversazione nella direzione giusta.
+
+<Warning>
+  **Critico**: Il 70% dei chiamanti decide se continuare o riagganciare nei primi 10 secondi. Un buon messaggio di benvenuto è fondamentale.
+</Warning>
+
+## Perché è Importante
+
+Il messaggio di benvenuto ha tre funzioni essenziali:
+
+<CardGroup cols={3}>
+  <Card title="Prima Impressione" icon="handshake">
+    Stabilisce immediatamente professionalità e tono della conversazione
+  </Card>
+  
+  <Card title="Orientamento" icon="compass">
+    Spiega al chiamante con chi sta parlando e cosa aspettarsi
+  </Card>
+  
+  <Card title="Direzione" icon="arrow-right">
+    Guida naturalmente verso il prossimo passo della conversazione
+  </Card>
+</CardGroup>
+
+## Anatomia di un Messaggio Perfetto
+
+Un messaggio di benvenuto efficace contiene 4 elementi chiave:
+
+### 1. Saluto
+
+<Tabs>
+  <Tab title="Formale">
+    ```
+    Buongiorno
+    Buonasera
+    Salve
+    Buon pomeriggio
+    ```
+    
+    **Quando Usare:**
+    - Servizi professionali
+    - B2B
+    - Settori tradizionali
+    - Cliente sconosciuto
+    
+    **Esempio:**
+    "Buongiorno, grazie per aver contattato Studio Legale Rossi."
+  </Tab>
+  
+  <Tab title="Neutro">
+    ```
+    Ciao
+    Benvenuto/a
+    Salve
+    ```
+    
+    **Quando Usare:**
+    - Settore retail
+    - Servizi consumer
+    - Brand moderni
+    - Target mix
+    
+    **Esempio:**
+    "Ciao e benvenuto in Casa Dolce Casa Immobiliare!"
+  </Tab>
+  
+  <Tab title="Informale">
+    ```
+    Hey!
+    Ehi, ciao!
+    Hello!
+    ```
+    
+    **Quando Usare:**
+    - Brand giovani
+    - Target under 35
+    - Settori creativi
+    - App e tech
+    
+    **Esempio:**
+    "Hey! Grazie per aver chiamato TechStart!"
+  </Tab>
+  
+  <Tab title="Dinamico">
+    ```
+    Buongiorno / Buon pomeriggio / Buonasera
+    (in base all'orario)
+    ```
+    
+    **Quando Usare:**
+    - Servizio 24/7
+    - Vuoi personalizzazione
+    - Attenzione ai dettagli
+    
+    **Setup:**
+    ```javascript
+    IF ora < 12:00 → "Buongiorno"
+    IF ora 12:00-18:00 → "Buon pomeriggio"
+    IF ora > 18:00 → "Buonasera"
+    ```
+    
+    **Esempio:**
+    "Buonasera, [Nome Azienda]..."
+  </Tab>
+</Tabs>
+
+### 2. Identificazione
+
+Comunica chiaramente **con chi** sta parlando il chiamante:
+
+<AccordionGroup>
+  <Accordion title="Nome Azienda (Obbligatorio)" icon="building">
+    ```
+    ✅ Sempre includere il nome dell'azienda:
+    "... Studio Medico Associato Bianchi"
+    "... Elettronica Moderna"
+    "... Hotel Bellavista"
+    
+    ❌ Mai omettere:
+    "Ciao!" (troppo generico)
+    "Grazie per aver chiamato" (chiamato chi?)
+    ```
+    
+    <Tip>
+      Pronuncia il nome dell'azienda chiaramente e con leggero rallentamento per enfasi.
+    </Tip>
+  </Accordion>
+  
+  <Accordion title="Nome Assistente (Raccomandato)" icon="user">
+    ```
+    ✅ Umanizza l'assistente con un nome:
+    "... sono Sofia, come posso aiutarla?"
+    "... parli con Marco, cosa posso fare per te?"
+    
+    📝 Scegli un nome che:
+    - Si abbini alla voce selezionata
+    - Sia facile da pronunciare
+    - Non crei confusione (evita nomi troppo comuni del team)
+    ```
+    
+    **Esempi:**
+    ```
+    Voce Professionale Femminile → Sofia, Elena, Laura
+    Voce Amichevole Femminile → Giulia, Chiara, Sara
+    Voce Professionale Maschile → Marco, Alessandro, Andrea
+    Voce Amichevole Maschile → Luca, Matteo, Davide
+    ```
+  </Accordion>
+  
+  <Accordion title="Ruolo (Opzionale)" icon="id-badge">
+    Specifica il ruolo solo se aggiunge valore:
+    
+    ```
+    ✅ Quando Utile:
+    "... sono Sara, l'assistente virtuale"
+    "... sono Marco del servizio clienti"
+    "... sono Elena, la tua assistente per oggi"
+    
+    ❌ Quando Inutile / Controproducente:
+    "... sono l'AI"
+    "... sono il robot assistente"
+    "... sono l'assistente automatico"
+    ```
+    
+    <Note>
+      Molti preferiscono non specificare "virtuale" o "AI" per evitare bias negativi. Test A/B consigliato.
+    </Note>
+  </Accordion>
+</AccordionGroup>
+
+### 3. Ringraziamento (Opzionale ma Raccomandato)
+
+```
+✅ Esempi Efficaci:
+"... grazie per aver chiamato [Azienda]"
+"... grazie per averci contattato"
+"... grazie per la tua chiamata"
+
+❌ Evitare:
+"... grazie mille per la chiamata" (troppo enfatico)
+"... ti ringraziamo infinitamente" (esagerato)
+```
+
+### 4. Apertura alla Conversazione
+
+Invita il chiamante a esprimere la sua esigenza:
+
+<Tabs>
+  <Tab title="Domanda Aperta">
+    **Più efficace per la maggior parte dei casi**
+    
+    ```
+    "Come posso aiutarla?"
+    "Come posso aiutarti?"
+    "Cosa posso fare per te oggi?"
+    "In cosa posso esserti utile?"
+    "Dimmi pure"
+    "Ti ascolto"
+    ```
+    
+    **Pro:**
+    - Naturale e umano
+    - Invita a parlare liberamente
+    - Funziona per qualsiasi richiesta
+    
+    **Esempio Completo:**
+    "Buongiorno, Studio Legale Rossi. Sono Sofia, come posso aiutarla?"
+  </Tab>
+  
+  <Tab title="Guida Specifica">
+    **Utile quando hai pochi scenari comuni**
+    
+    ```
+    "Stai chiamando per un appuntamento o per informazioni?"
+    "Hai bisogno di supporto tecnico o vuoi fare un ordine?"
+    "È per una nuova prenotazione o per modificarne una esistente?"
+    ```
+    
+    **Pro:**
+    - Accelera il routing
+    - Chiaro e diretto
+    - Riduce ambiguità
+    
+    **Contro:**
+    - Può sembrare rigido
+    - Non copre richieste insolite
+    
+    **Esempio Completo:**
+    "Buongiorno, Hotel Bellavista. Sono Marco. Stai chiamando per una prenotazione o per informazioni sulla struttura?"
+  </Tab>
+  
+  <Tab title="Statement + Pausa">
+    **Elegante per contesti premium**
+    
+    ```
+    "Sono qui per assisterla." [pausa]
+    "Sono a sua disposizione." [pausa]
+    "L'ascolto." [pausa]
+    ```
+    
+    **Pro:**
+    - Molto elegante
+    - Dà tempo al chiamante
+    - Professionale
+    
+    **Contro:**
+    - Richiede chiamante proattivo
+    - Pause possono essere imbarazzanti
+    
+    **Esempio Completo:**
+    "Buonasera, Boutique Elegance. Sono Elena. Sono qui per assisterla." [pausa 2 sec]
+  </Tab>
+</Tabs>
+
+## Esempi Completi per Settore
+
+### E-Commerce
+
+<Tabs>
+  <Tab title="Standard">
+    ```
+    "Ciao! Grazie per aver chiamato [Nome Shop]. 
+    Sono Giulia, come posso aiutarti oggi?"
+    ```
+    
+    **Durata:** 6 secondi  
+    **Tono:** Amichevole  
+    **Voce:** Giulia (Amichevole)
+  </Tab>
+  
+  <Tab title="Con Orario">
+    ```
+    "Buongiorno! [Nome Shop], sono Giulia. 
+    Come posso aiutarti?"
+    ```
+    
+    **Durata:** 4 secondi  
+    **Tono:** Diretto e amichevole  
+    **Variante:** Cambia saluto in base all'ora
+  </Tab>
+  
+  <Tab title="Con Contesto">
+    ```
+    "Ciao! [Nome Shop]. Sono Giulia. 
+    Stai chiamando per un ordine o hai bisogno di informazioni?"
+    ```
+    
+    **Durata:** 7 secondi  
+    **Tono:** Guidato  
+    **Pro:** Accelera routing
+  </Tab>
+</Tabs>
+
+### Servizi Professionali
+
+<Tabs>
+  <Tab title="Studio Legale">
+    ```
+    "Buongiorno, Studio Legale Rossi & Associati. 
+    Sono Sofia, come posso aiutarla?"
+    ```
+    
+    **Durata:** 6 secondi  
+    **Tono:** Professionale formale  
+    **Voce:** Sofia (Professionale)
+  </Tab>
+  
+  <Tab title="Commercialista">
+    ```
+    "Buongiorno, Studio Bianchi Commercialisti. 
+    Sono Marco, l'ascolto."
+    ```
+    
+    **Durata:** 5 secondi  
+    **Tono:** Professionale sobrio  
+    **Voce:** Marco (Professionale)
+  </Tab>
+  
+  <Tab title="Consulenza">
+    ```
+    "Salve, [Nome Consulenza]. Sono Elena. 
+    In cosa posso esserle utile oggi?"
+    ```
+    
+    **Durata:** 5 secondi  
+    **Tono:** Professionale accessibile  
+    **Voce:** Elena (Elegante)
+  </Tab>
+</Tabs>
+
+### Healthcare
+
+<Tabs>
+  <Tab title="Studio Medico">
+    ```
+    "Buongiorno, Studio Medico Dottor Verdi. 
+    Sono Maria, come posso aiutarla?"
+    ```
+    
+    **Durata:** 6 secondi  
+    **Tono:** Rassicurante  
+    **Voce:** Maria (Materna)
+  </Tab>
+  
+  <Tab title="Con Routing">
+    ```
+    "Buongiorno, Studio Medico Dottor Verdi. 
+    Sono Maria. Desidera prenotare una visita o parlare 
+    con la segreteria?"
+    ```
+    
+    **Durata:** 9 secondi  
+    **Tono:** Paziente e chiaro  
+    **Pro:** Routing immediato
+  </Tab>
+</Tabs>
+
+### Immobiliare
+
+<Tabs>
+  <Tab title="Agenzia Generale">
+    ```
+    "Ciao! Casa Dolce Casa Immobiliare. 
+    Sono Luca, come posso aiutarti?"
+    ```
+    
+    **Durata:** 5 secondi  
+    **Tono:** Cordiale  
+    **Voce:** Luca (Amichevole)
+  </Tab>
+  
+  <Tab title="Con Contesto">
+    ```
+    "Ciao! Casa Dolce Casa Immobiliare, sono Luca. 
+    Cerchi casa o vuoi vendere?"
+    ```
+    
+    **Durata:** 6 secondi  
+    **Tono:** Diretto e amichevole  
+    **Pro:** Qualifica subito
+  </Tab>
+</Tabs>
+
+### Hospitality
+
+<Tabs>
+  <Tab title="Hotel Standard">
+    ```
+    "Buongiorno, Hotel Bellavista. 
+    Sono Marco, come posso assisterla?"
+    ```
+    
+    **Durata:** 5 secondi  
+    **Tono:** Professionale cordiale  
+    **Voce:** Marco (Professionale)
+  </Tab>
+  
+  <Tab title="Hotel Luxury">
+    ```
+    "Buonasera e benvenuto all'Hotel Bellavista. 
+    Sono Elena, sono qui per assisterla."
+    ```
+    
+    **Durata:** 7 secondi  
+    **Tono:** Elegante  
+    **Voce:** Elena (Elegante)
+  </Tab>
+  
+  <Tab title="B&B Informale">
+    ```
+    "Ciao! B&B Camere con Vista. 
+    Sono Giulia, dimmi pure!"
+    ```
+    
+    **Durata:** 4 secondi  
+    **Tono:** Informale caloroso  
+    **Voce:** Giulia (Amichevole)
+  </Tab>
+</Tabs>
+
+### Retail
+
+<Tabs>
+  <Tab title="Negozio Fisico">
+    ```
+    "Ciao! [Nome Negozio], sono Chiara. 
+    Come posso aiutarti?"
+    ```
+    
+    **Durata:** 4 secondi  
+    **Tono:** Energico  
+    **Voce:** Chiara (Giovanile)
+  </Tab>
+  
+  <Tab title="Con Orari">
+    ```
+    "Ciao! [Nome Negozio]. Sono Chiara. 
+    Vuoi sapere gli orari o hai un'altra domanda?"
+    ```
+    
+    **Durata:** 6 secondi  
+    **Tono:** Pratico  
+    **Uso:** Quando molti chiamano per orari
+  </Tab>
+</Tabs>
+
+## Personalizzazione Avanzata
+
+### Messaggi Basati su Contesto
+
+<AccordionGroup>
+  <Accordion title="Orario del Giorno" icon="clock">
+    ```javascript
+    IF ora 06:00-11:59 → "Buongiorno"
+    IF ora 12:00-17:59 → "Buon pomeriggio"
+    IF ora 18:00-22:59 → "Buonasera"
+    IF ora 23:00-05:59 → "Buona notte"
+    ```
+    
+    **Esempio Applicato:**
+    ```
+    08:00 → "Buongiorno, [Azienda]. Sono Sofia..."
+    14:00 → "Buon pomeriggio, [Azienda]. Sono Sofia..."
+    20:00 → "Buonasera, [Azienda]. Sono Sofia..."
+    01:00 → "Buona notte, [Azienda]. Sono Sofia. 
+             Nota che siamo fuori dall'orario di ufficio..."
+    ```
+  </Accordion>
+  
+  <Accordion title="Giorno della Settimana" icon="calendar-days">
+    ```javascript
+    IF lunedì mattina:
+      "Buongiorno e buon inizio settimana! [Azienda]..."
+    
+    IF venerdì pomeriggio:
+      "Buon pomeriggio! [Azienda]..."
+    
+    IF weekend:
+      "Ciao! [Azienda]. Ti ricordo che il nostro ufficio 
+       è chiuso nei weekend, ma sono qui per aiutarti..."
+    ```
+  </Accordion>
+  
+  <Accordion title="Festività" icon="gifts">
+    ```javascript
+    IF periodo natalizio (1-26 dicembre):
+      "Buongiorno e Buone Feste! [Azienda]..."
+    
+    IF periodo ferragosto (1-20 agosto):
+      "Ciao! [Azienda]. Durante il periodo estivo 
+       i nostri orari sono ridotti, ma sono qui per..."
+    
+    IF giorno specifico festivo:
+      "Buongiorno! Oggi è [festa] e gli uffici sono chiusi, 
+       ma posso aiutarti con..."
+    ```
+    
+    <Note>
+      Aggiorna questi messaggi temporanei manualmente prima di ogni periodo.
+    </Note>
+  </Accordion>
+  
+  <Accordion title="Cliente Nuovo vs Ritorno" icon="user-check">
+    ```javascript
+    IF chiamante_riconosciuto:
+      "Bentornato [Nome]! [Azienda], sono Sofia. 
+       Come posso aiutarti oggi?"
+    
+    IF chiamante_nuovo:
+      "Ciao! [Azienda], sono Sofia. 
+       Come posso aiutarti?"
+    ```
+    
+    <Warning>
+      Richiede integrazione CRM e gestione privacy GDPR. Usa solo se hai consenso.
+    </Warning>
+  </Accordion>
+  
+  <Accordion title="Situazioni Speciali" icon="circle-exclamation">
+    ```javascript
+    IF emergenza_in_corso:
+      "Attenzione: a causa di [situazione] il nostro 
+       servizio potrebbe subire ritardi. [Azienda], 
+       sono Sofia, come posso aiutarti?"
+    
+    IF manutenzione_programmata:
+      "Ciao! [Azienda]. Ti informo che dalle [ora] 
+       il nostro sistema sarà in manutenzione. 
+       Sono Sofia, posso comunque aiutarti?"
+    
+    IF alta_affluenza:
+      "Ciao! [Azienda]. A causa dell'alto numero di 
+       richieste, potrei impiegare un po' più tempo. 
+       Sono Sofia, sono qui per aiutarti."
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Errori Comuni da Evitare
+
+<AccordionGroup>
+  <Accordion title="❌ Troppo Lungo" icon="hourglass">
+    **Problema:**
+    ```
+    "Buongiorno e grazie per aver chiamato [Azienda], 
+    leader nel settore [settore] da oltre 30 anni, 
+    specializzati in [servizio 1], [servizio 2] e 
+    [servizio 3]. Sono Sofia, assistente virtuale di 
+    [Azienda], e sono qui per aiutarla con qualsiasi 
+    richiesta riguardante i nostri servizi..."
+    ```
+    
+    **Durata:** 25+ secondi  
+    **Problema:** Il chiamante si annoia/frustra
+    
+    **✅ Versione Corretta:**
+    ```
+    "Buongiorno, [Azienda]. Sono Sofia, come posso aiutarla?"
+    ```
+    
+    **Durata:** 5 secondi  
+    **Regola:** Massimo 10 secondi totali
+  </Accordion>
+  
+  <Accordion title="❌ Troppo Robotico" icon="robot">
+    **Problema:**
+    ```
+    "Sistema automatico [Azienda]. 
+    Selezionare opzione da menu. 
+    Premere uno per vendite..."
+    ```
+    
+    **Cosa Non Va:**
+    - Suona come vecchio IVR
+    - Nessun calore umano
+    - Esperienza negativa
+    
+    **✅ Versione Corretta:**
+    ```
+    "Ciao! [Azienda], sono Giulia. 
+    Come posso aiutarti oggi?"
+    ```
+    
+    **Differenza:** Naturale, umano, accogliente
+  </Accordion>
+  
+  <Accordion title="❌ Informazioni Non Necessarie" icon="circle-info">
+    **Problema:**
+    ```
+    "Buongiorno! [Azienda], siamo in Via Roma 123, 
+    Milano, aperti dal lunedì al venerdì dalle 9 
+    alle 18. Sono Sofia..."
+    ```
+    
+    **Cosa Non Va:**
+    - Info non richieste
+    - Perde tempo
+    - Non tutte le chiamate ne hanno bisogno
+    
+    **✅ Versione Corretta:**
+    ```
+    "Buongiorno, [Azienda]. Sono Sofia, come posso aiutarla?"
+    ```
+    
+    **Nota:** Fornisci info quando richieste, non nel saluto
+  </Accordion>
+  
+  <Accordion title="❌ Scuse Preventive" icon="face-frown">
+    **Problema:**
+    ```
+    "Ciao, sono l'assistente virtuale, mi dispiace 
+    non essere una persona vera ma farò del mio 
+    meglio per aiutarti..."
+    ```
+    
+    **Cosa Non Va:**
+    - Crea aspettative negative
+    - Sottolinea limiti invece che capacità
+    - Non professionale
+    
+    **✅ Versione Corretta:**
+    ```
+    "Ciao! [Azienda], sono Sofia. Come posso aiutarti?"
+    ```
+    
+    **Regola:** Mai scusarsi per essere AI
+  </Accordion>
+  
+  <Accordion title="❌ Troppo Informale per Contesto" icon="face-laugh-beam">
+    **Problema per Studio Legale:**
+    ```
+    "Ehi! Studio Legale Rossi, sono Sofi! 
+    Che c'è di nuovo?"
+    ```
+    
+    **Cosa Non Va:**
+    - Tono inappropriato per settore
+    - Manca professionalità
+    - Potrebbe alienare clienti
+    
+    **✅ Versione Corretta:**
+    ```
+    "Buongiorno, Studio Legale Rossi. 
+    Sono Sofia, come posso aiutarla?"
+    ```
+  </Accordion>
+  
+  <Accordion title="❌ Troppo Formale per Contesto" icon="user-tie">
+    **Problema per Brand Giovane:**
+    ```
+    "Salve, [Brand]. La sottoscritta Sofia è lieta 
+    di porgerle i suoi più cordiali saluti e si 
+    rende disponibile per..."
+    ```
+    
+    **Cosa Non Va:**
+    - Eccessivamente formale
+    - Non allineato al brand
+    - Crea distanza
+    
+    **✅ Versione Corretta:**
+    ```
+    "Ciao! [Brand], sono Sofia. Come posso aiutarti?"
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Test e Ottimizzazione
+
+### Metodologia di Test
+
+<Steps>
+  <Step title="Crea 3 Varianti">
+    Prepara 3 versioni diverse del messaggio di benvenuto:
+    
+    ```
+    Variante A (Conciso):
+    "Ciao! [Azienda], sono Sofia. Come posso aiutarti?"
+    
+    Variante B (Con Ringraziamento):
+    "Ciao! Grazie per aver chiamato [Azienda]. 
+    Sono Sofia, come posso aiutarti?"
+    
+    Variante C (Con Contesto):
+    "Ciao! [Azienda], sono Sofia. Stai chiamando 
+    per un appuntamento o per informazioni?"
+    ```
+  </Step>
+  
+  <Step title="Test Interno">
+    Fai ascoltare a 10 persone del team:
+    
+    **Domande:**
+    - Quale preferisci?
+    - Quale ti sembra più professionale?
+    - Quale ti invita di più a parlare?
+    - Quale rappresenta meglio il brand?
+  </Step>
+  
+  <Step title="Test A/B con Clienti Reali">
+    Se possibile, split test:
+    - 33% traffico Variante A
+    - 33% traffico Variante B
+    - 33% traffico Variante C
+    
+    **Durata minima:** 100 chiamate per variante
+  </Step>
+  
+  <Step title="Analizza Metriche">
+    **Metriche Chiave:**
+    ```
+    - Tasso di abbandono immediato (<10 sec)
+    - Durata media prima risposta cliente
+    - Sentiment prima risposta cliente
+    - CSAT generale
+    - Feedback specifico sul saluto
+    ```
+  </Step>
+  
+  <Step title="Implementa Vincitore">
+    Adotta la variante con:
+    - Minor tasso abbandono
+    - Maggior engagement
+    - Feedback più positivo
+  </Step>
+</Steps>
+
+### Checklist Qualità
+
+Prima di finalizzare il messaggio:
+
+<Checks>
+  - [ ] ✅ Durata totale < 10 secondi
+  - [ ] ✅ Include nome azienda chiaramente
+  - [ ] ✅ Include nome assistente
+  - [ ] ✅ Tono allineato al brand
+  - [ ] ✅ Linguaggio appropriato per target
+  - [ ] ✅ Nessuna info non necessaria
+  - [ ] ✅ Invito chiaro all'azione
+  - [ ] ✅ Testato con almeno 10 persone
+  - [ ] ✅ Nessun termine tecnico/complesso
+  - [ ] ✅ Pronuncia chiara quando letto ad alta voce
+  - [ ] ✅ Nessuna scusa preventiva
+  - [ ] ✅ Professionale ma non rigido
+</Checks>
+
+## Template Avanzati
+
+### Template con Variabili
+
+```javascript
+// Base Template
+const baseGreeting = `{{greeting}}, {{company_name}}. 
+Sono {{assistant_name}}. {{call_to_action}}`;
+
+// Variabili
+const greetings = {
+  morning: "Buongiorno",
+  afternoon: "Buon pomeriggio",
+  evening: "Buonasera",
+  night: "Buona notte"
+};
+
+const callToActions = {
+  open: "Come posso aiutarla?",
+  guided: "Stai chiamando per un appuntamento o informazioni?",
+  elegant: "L'ascolto."
+};
+
+// Risultato Dinamico
+// Alle 09:00 → "Buongiorno, [Azienda]. Sono Sofia. Come posso aiutarla?"
+// Alle 20:00 → "Buonasera, [Azienda]. Sono Sofia. Come posso aiutarla?"
+```
+
+### Template per Situazioni Speciali
+
+<Accordion title="Chiusura Temporanea" icon="door-closed">
+```
+"Ciao! [Azienda], sono Sofia. 
+Ti informo che siamo temporaneamente chiusi per [motivo]. 
+Riprenderemo il servizio il [data]. 
+Posso comunque aiutarti con informazioni generali o 
+prendere un messaggio. Cosa preferisci?"
+```
+</Accordion>
+
+<Accordion title="Orario di Punta" icon="users">
+```
+"Ciao! [Azienda], sono Sofia. 
+A causa dell'alto numero di richieste in questo momento, 
+potresti dover attendere leggermente più del solito. 
+Come posso aiutarti?"
+```
+</Accordion>
+
+<Accordion title="Primo Lancio" icon="rocket">
+```
+"Ciao! [Azienda], sono Sofia, il nuovo assistente virtuale. 
+Siamo in fase di lancio quindi apprezzo la tua pazienza. 
+Come posso aiutarti oggi?"
+```
+</Accordion>
+
+<Accordion title="Black Friday / Promo" icon="tags">
+```
+"Ciao! [Azienda], sono Sofia. 
+Ti ricordo che è attiva la promozione [nome promo] 
+con sconti fino al [%]. Come posso aiutarti?"
+```
+</Accordion>
+
+## Best Practices Finali
+
+<CardGroup cols={2}>
+  <Card title="Brevità" icon="gauge">
+    Mantieni < 10 secondi totali. Ogni secondo conta.
+  </Card>
+  
+  <Card title="Chiarezza" icon="ear-listen">
+    Pronuncia lenta e chiara, specialmente per nome azienda.
+  </Card>
+  
+  <Card title="Naturalezza" icon="comment">
+    Scrivi come parleresti, non come scriveresti.
+  </Card>
+  
+  <Card title="Coerenza" icon="equals">
+    Mantieni stesso tono in tutto il sistema.
+  </Card>
+  
+  <Card title="Test" icon="flask">
+    Testa sempre con persone reali prima del lancio.
+  </Card>
+  
+  <Card title="Iterazione" icon="rotate">
+    Rivedi e ottimizza basandoti su dati reali.
+  </Card>
+</CardGroup>
+
+## Prossimi Passi
+
+<CardGroup cols={2}>
+  <Card
+    title="Scrivi il Prompt"
+    icon="pen"
+    href="/comportamento/prompt"
+  >
+    Definisci comportamento completo dell'assistente
+  </Card>
+  
+  <Card
+    title="Configura Knowledge Base"
+    icon="database"
+    href="/comportamento/knowledge-base"
+  >
+    Carica le informazioni per le risposte
+  </Card>
+  
+  <Card
+    title="Test Chiamata Completa"
+    icon="phone"
+    href="/introduction/quickstart"
+  >
+    Prova l'esperienza completa end-to-end
+  </Card>
+  
+  <Card
+    title="Analizza Feedback"
+    icon="chart-line"
+    href="/faq/domande-frequenti"
+  >
+    Monitora reazioni e ottimizza
+  </Card>
+</CardGroup>
+
+<Tip>
+  **Golden Rule**: Il miglior messaggio di benvenuto è quello che il chiamante dimentica, perché lo porta naturalmente nella conversazione senza attriti.
+</Tip>
