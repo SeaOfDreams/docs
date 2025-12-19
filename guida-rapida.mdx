@@ -41,18 +41,36 @@ Prima di iniziare, assicurati di avere:
 
 <Steps>
   <Step title="Nuovo Assistente">
-    Clicca sul pulsante **"Crea Nuovo Assistente"** nella dashboard.
+    Clicca sul pulsante **"+ Crea Assistente"** nel menu di sinistra.
     
     <Frame>
-      <img src="/images/create-assistant.png" alt="Crea nuovo assistente" />
+      <img src="/images/passo1.png" alt="Dashboard Grip AI con pulsante Crea Assistente evidenziato" />
     </Frame>
   </Step>
   
   <Step title="Informazioni Base">
-    Compila i campi base:
-    - **Nome Assistente**: Es. "Assistente Clienti"
-    - **Descrizione**: Breve descrizione del suo ruolo
-    - **Settore**: Seleziona il tuo settore di riferimento
+    Compila i seguenti camp:
+    - **Nome Assistente**: Es. "Assistente Clienti". Questo non è il nome con cui l'Assistente si presenterà ai clienti al telefono, ma è solo il nome che vedrai nel menu della dashboard. Il nome per i clienti lo definirai poi nel [prompt](/essentials/prompt).
+    - **Icona**: Puoi scegliere un'icona (opzionale)
+    - **Colore**: Puoi scegliere un colore (opzionale)
+    
+    <Warning>
+      Icona e colore sono opzionali ma servono a distinguere gli Assistenti nel menu.
+    </Warning>
+  </Step>
+  
+  <Step title="Scegli la voce e imposta messaggio iniziale">
+    Seleziona la voce per il tuo assistente e configura il messaggio di benvenuto che gli utenti sentiranno quando chiamano.
+    
+    <Frame>
+      <img src="/images/passo3.png" alt="Schermata selezione voce e messaggio di benvenuto" />
+    </Frame>
+    
+    Puoi scegliere tra più di 50 [modelli di voce](/essentials/lingua), tutti con un suono incredibilmente umano.
+  </Step>
+  
+  <Step title="Prompt">
+    Definisci il tuo prompt o scegli dai nostri modelli ([guida dettagliata](/essentials/prompt)).
   </Step>
 </Steps>
 
@@ -60,21 +78,14 @@ Prima di iniziare, assicurati di avere:
 
 La Knowledge Base è il cuore del tuo assistente. Qui inserisci tutte le informazioni che l'AI utilizzerà per rispondere.
 
+Clicca su Knowledge Base
+
+<Frame>
+  <img src="/images/knowledge.png" alt="Schermata Knowledge Base" />
+</Frame>
+
 <Tabs>
-  <Tab title="Link Web">
-    ```markdown
-    1. Clicca su "Aggiungi URL"
-    2. Seleziona "Link Web"
-    3. Inserisci l'URL della tua pagina
-    4. Clicca "Importa"
-    ```
-    
-    <Tip>
-      Puoi aggiungere multiple pagine web. L'AI le analizzerà tutte automaticamente.
-    </Tip>
-  </Tab>
-  
-  <Tab title="Documenti">
+<Tab title="Documenti">
     ```markdown
     1. Clicca su "Carica Documento"
     2. Seleziona file PDF, Word o TXT
@@ -84,11 +95,10 @@ La Knowledge Base è il cuore del tuo assistente. Qui inserisci tutte le informa
     
     <Note>
       Formati supportati: PDF, DOCX, TXT, CSV
-      Dimensione massima: 10MB per file
     </Note>
   </Tab>
-  
-  <Tab title="Q&A Personalizzate">
+
+    <Tab title="Q&A Personalizzate">
     ```markdown
     1. Clicca su "Aggiungi Q&A"
     2. Inserisci la domanda frequente
@@ -97,93 +107,56 @@ La Knowledge Base è il cuore del tuo assistente. Qui inserisci tutte le informa
     ```
     
     <Warning>
-      Usa Q&A per informazioni critiche che devono essere sempre fornite esattamente come le scrivi.
+      Usa Q&A per domande ricorrenti specifiche.
     </Warning>
   </Tab>
+
+  <Tab title="Link Web">
+    ```markdown
+    1. Clicca su "Aggiungi URL"
+    2. Inserisci l'URL
+    3. Definisci se singola pagina o intero sito
+    4. Clicca "Aggiungi URL"
+    ```
+    
+    <Tip>
+      Puoi aggiungere una singola pagina web oppure un intero sito (l'AI le assimilerà tutte automaticamente a cascata partendo dall'URL fornito).
+    </Tip>
+  </Tab>
+  
+  
+  
+
 </Tabs>
 
-
-
-## Step 4: Definisci la Personalità
-
-Configura come il tuo assistente dovrebbe comportarsi e comunicare.
-
-<AccordionGroup>
-  <Accordion title="Tono di Voce" icon="volume">
-    Scegli il tono appropriato per il tuo brand:
-    - **Professionale**: Formale e cortese
-    - **Amichevole**: Cordiale e rilassato
-    - **Entusiasta**: Energico e positivo
-    - **Empatico**: Comprensivo e rassicurante
-  </Accordion>
-  
-  <Accordion title="Stile di Comunicazione" icon="comments">
-    Definisci come l'assistente dovrebbe parlare:
-    - Lunghezza delle risposte (breve/media/dettagliata)
-    - Uso di domande di follow-up
-    - Livello di formalità
-  </Accordion>
-  
-  <Accordion title="Istruzioni Speciali" icon="list-check">
-    Aggiungi regole specifiche:
-    ```
-    - Saluta sempre menzionando il nome dell'azienda
-    - Chiedi sempre il nome del chiamante all'inizio
-    - Conferma le informazioni importanti
-    - Ringrazia prima di concludere la chiamata
-    ```
-  </Accordion>
-</AccordionGroup>
-
-## Step 5: Seleziona la Voce
-
-Grip AI offre più di 50 voci AI diverse. Scegli quella che rappresenta meglio il tuo brand.
-
-<CardGroup cols={2}>
-  <Card title="Voci Italiane" icon="flag">
-    - Sara (Femminile, professionale)
-    - Marco (Maschile, cordiale)
-    - Giulia (Femminile, giovane)
-    - Alessandro (Maschile, maturo)
-  </Card>
-  
-  <Card title="Caratteristiche Vocali" icon="waveform">
-    - Tono caldo ed empatico
-    - Pause naturali
-    - Intonazioni umane
-    - Velocità regolabile
-  </Card>
-</CardGroup>
-
-<Tip>
-  **Consiglio Pro**: Testa diverse voci con chiamate di prova prima di scegliere quella definitiva.
-</Tip>
-
-## Step 6: Configura il Numero di Telefono
+## Step 4: Configura il Numero di Telefono
 
 Hai due opzioni per il numero telefonico:
 
 <Tabs>
   <Tab title="Numero Dedicato Grip">
-    Il modo più semplice per iniziare:
+    Ottieni un numero dedicato per il tuo Assistente. Il numero avrà prefisso 015 ed è subito operativo. E' anche possibile avere un numero con prefisso locale (ad esempio la provincia dove ha sede la tua azienda). In tal caso sono necessari 5-7 giorni per ottenerlo. Scrivici a info@getgrip.ai e ti spiegheremo come fare. 
     
     <Steps>
-      <Step title="Richiedi Numero">
-        Clicca su "Ottieni Numero Grip"
+      <Step title="Assegna Numero">
+                
+        Clicca su "Assegna Numero di telefono"
+        
+        <Frame>
+          <img src="/images/numtel.png" alt="Schermata assegnazione numero di telefono" />
+        </Frame>
       </Step>
-      <Step title="Scegli Località">
-        Seleziona prefisso e città
-      </Step>
+      
       <Step title="Conferma">
-        Il numero sarà attivo in pochi minuti
+        Scegil il numero e conferma, sarà attivo in pochi minuti
       </Step>
     </Steps>
     
-    **Costo**: €9/mese + costo chiamate
+    **Costo**: €9/mese + IVA (detratto dai tuoi crediti)
   </Tab>
   
   <Tab title="Usa il Tuo Numero">
-    Integra con il tuo centralino esistente:
+    Se possiedi un centralino VOIP o in cloud, puoi utilizzare i tuoi numeri senza costi aggiuntivi.
     
     <Steps>
       <Step title="Configura SIP">
@@ -198,272 +171,64 @@ Hai due opzioni per il numero telefonico:
     </Steps>
     
     <Info>
-      Grip supporta tutti i principali provider SIP italiani ed europei.
+      Grip supporta tutti i principali provider SIP italiani.
     </Info>
   </Tab>
 </Tabs>
 
-## Step 7: Configura Funzionalità Avanzate
+## Step 5: Configura Funzionalità Avanzate
 
-Aggiungi funzionalità per rendere il tuo assistente ancora più potente:
-
-### Inoltro Chiamate
-
-```javascript
-Quando inoltrare:
-- Richieste complesse che richiedono un umano
-- Chiamate urgenti o emergenze
-- Quando il chiamante lo richiede esplicitamente
-
-Configurazione:
-1. Aggiungi numeri di inoltro del team
-2. Imposta orari di disponibilità
-3. Definisci regole di inoltro intelligente
-```
-
-### Prenotazione Appuntamenti
-
-<Steps>
-  <Step title="Connetti Calendario">
-    Integra con Google Calendar, Outlook o Cal.com
-  </Step>
-  
-  <Step title="Imposta Disponibilità">
-    Definisci orari e durata degli appuntamenti
-  </Step>
-  
-  <Step title="Configura Conferme">
-    Attiva email/SMS di conferma automatici
-  </Step>
-</Steps>
-
-### Integrazione CRM
-
-```markdown
-Salva automaticamente nel CRM:
-- Informazioni chiamante (nome, email, telefono)
-- Motivo della chiamata
-- Note e dettagli discussi
-- Follow-up necessari
-```
-
-## Step 8: Test del Tuo Assistente
-
-Prima di andare live, testa accuratamente il tuo assistente:
-
-<Tabs>
-  <Tab title="Test Base">
-    <AccordionGroup>
-      <Accordion title="1. Chiama il Numero">
-        Effettua una chiamata di test al tuo numero Grip
-      </Accordion>
-      
-      <Accordion title="2. Testa Scenari Comuni">
-        - Richiesta informazioni generali
-        - Prenotazione appuntamento
-        - Segnalazione problema
-        - Richiesta di parlare con un operatore
-      </Accordion>
-      
-      <Accordion title="3. Verifica Risposte">
-        - Le risposte sono accurate?
-        - Il tono è appropriato?
-        - Le informazioni sono complete?
-      </Accordion>
-    </AccordionGroup>
-  </Tab>
-  
-  <Tab title="Test Avanzati">
-    <AccordionGroup>
-      <Accordion title="Test Integrazioni">
-        - Verifica che gli appuntamenti vengano creati
-        - Controlla che i dati arrivino al CRM
-        - Testa l'inoltro chiamate
-      </Accordion>
-      
-      <Accordion title="Test Casi Limite">
-        - Domande fuori dal contesto
-        - Informazioni mancanti
-        - Chiamate in lingue diverse
-      </Accordion>
-      
-      <Accordion title="Test Performance">
-        - Tempi di risposta
-        - Qualità audio
-        - Stabilità della connessione
-      </Accordion>
-    </AccordionGroup>
-  </Tab>
-</Tabs>
-
-## Step 9: Attivazione e Monitoraggio
-
-Una volta soddisfatto dei test, attiva il tuo assistente:
-
-<Steps>
-  <Step title="Attivazione">
-    Clicca sul pulsante **"Attiva Assistente"** nella dashboard
-  </Step>
-  
-  <Step title="Comunicazione">
-    Informa il tuo team e i clienti del nuovo servizio
-  </Step>
-  
-  <Step title="Monitoraggio Iniziale">
-    Nei primi giorni, monitora attentamente:
-    - Transcript delle chiamate
-    - Feedback dei clienti
-    - Metriche di performance
-  </Step>
-</Steps>
-
-## Dashboard e Monitoraggio
-
-Dopo l'attivazione, usa la dashboard per monitorare:
-
-<CardGroup cols={2}>
-  <Card title="Statistiche Chiamate" icon="chart-line">
-    - Numero totale chiamate
-    - Durata media
-    - Tasso di risoluzione
-    - Tasso di inoltro
-  </Card>
-  
-  <Card title="Transcript e Registrazioni" icon="file-lines">
-    - Trascrizioni complete
-    - Registrazioni audio
-    - Note e variabili estratte
-    - Feedback automatico
-  </Card>
-  
-  <Card title="Performance AI" icon="brain">
-    - Accuratezza risposte
-    - Tempo di risposta
-    - Livello di confidenza
-    - Aree di miglioramento
-  </Card>
-  
-  <Card title="Integrazioni" icon="plug">
-    - Stato connessioni
-    - Dati sincronizzati
-    - Errori e warning
-    - Log attività
-  </Card>
-</CardGroup>
-
-## Ottimizzazione Continua
-
-Il tuo assistente migliorerà nel tempo. Ecco come ottimizzarlo:
-
-<AccordionGroup>
-  <Accordion title="Analizza i Transcript" icon="magnifying-glass">
-    Rivedi regolarmente le trascrizioni per identificare:
-    - Domande frequenti non coperte
-    - Risposte da migliorare
-    - Nuove situazioni da gestire
-  </Accordion>
-  
-  <Accordion title="Aggiorna Knowledge Base" icon="book">
-    Mantieni aggiornata la base di conoscenza:
-    - Aggiungi nuove FAQ
-    - Aggiorna informazioni cambiate
-    - Rimuovi contenuti obsoleti
-  </Accordion>
-  
-  <Accordion title="Affina il Prompt" icon="wand-magic-sparkles">
-    Migliora le istruzioni del prompt:
-    - Aggiungi esempi di conversazioni
-    - Specifica meglio il comportamento desiderato
-    - Affina il tono e lo stile
-  </Accordion>
-  
-  <Accordion title="Test A/B" icon="flask">
-    Prova diverse configurazioni:
-    - Voci differenti
-    - Variazioni di prompt
-    - Diverse strategie di inoltro
-  </Accordion>
-</AccordionGroup>
-
-## Prossimi Passi
-
-Ora che hai il tuo primo assistente attivo, esplora funzionalità avanzate:
+Utilizza i Tools di integrazione per rendere il tuo assistente veramente potente:
 
 <CardGroup cols={2}>
   <Card
-    title="Integrazioni Avanzate"
-    icon="puzzle-piece"
-    href="/tecnico/funzioni"
+    title="Integrazione Calendario"
+    icon="calendar"
+    href="/tools/calendar"
   >
-    Scopri tutte le integrazioni disponibili
+    Permetti all'assistente di prenotare appuntamenti direttamente nel tuo calendario
   </Card>
   
   <Card
-    title="Automazioni Post-Chiamata"
-    icon="robot"
-    href="/post-elaborazione/api-request"
+    title="Inoltro Chiamate"
+    icon="phone"
+    href="/tools/inoltro-chiamate"
   >
-    Configura azioni automatiche dopo ogni chiamata
+    Configura il trasferimento intelligente delle chiamate ai tuoi operatori
   </Card>
   
   <Card
-    title="Gestione Multi-Assistente"
-    icon="users"
-    href="/comportamento/panoramica"
+    title="Integrazioni API"
+    icon="plug"
+    href="/tools/integrazioni-api"
   >
-    Crea assistenti specializzati per diversi reparti
+    Collega il tuo CRM e altri sistemi per sincronizzare i dati automaticamente
   </Card>
   
   <Card
-    title="Analytics Avanzati"
-    icon="chart-pie"
-    href="/tecnico/registrazione"
+    title="Pre-Call API"
+    icon="code"
+    href="/tools/pre-call-api"
   >
-    Approfondisci l'analisi delle performance
+    Personalizza il comportamento dell'assistente in base ai dati del chiamante
+  </Card>
+  
+  <Card
+    title="Inoltro Transcript"
+    icon="file-lines"
+    href="/tools/inoltro-transcript"
+  >
+    Invia automaticamente le trascrizioni delle chiamate ai tuoi sistemi
   </Card>
 </CardGroup>
 
-## Checklist Finale
+## Step 6: Test del Tuo Assistente
 
-Prima di considerare completata la configurazione, verifica:
+Prima di andare live, puoi testare l'assistente. Clicca su "Testa l'Assistente" e potrai far partire una chiamata direttamente dal tuo pc.
 
-<Checks>
-  - [ ] Knowledge Base completa e accurata
-  - [ ] Personalità e tono definiti correttamente
-  - [ ] Voce selezionata e testata
-  - [ ] Numero di telefono configurato
-  - [ ] Test chiamate effettuati con successo
-  - [ ] Integrazioni verificate (se attive)
-  - [ ] Team informato sul nuovo assistente
-  - [ ] Dashboard di monitoraggio configurata
-  - [ ] Piano di ottimizzazione definito
-</Checks>
-
-## Hai Bisogno di Aiuto?
-
-<CardGroup cols={2}>
-  <Card
-    title="Supporto Tecnico"
-    icon="life-ring"
-    href="mailto:support@getgrip.ai"
-  >
-    Il nostro team è qui per aiutarti
-  </Card>
-  
-  <Card
-    title="Community Forum"
-    icon="users"
-    href="https://community.getgrip.ai"
-  >
-    Condividi esperienze con altri utenti
-  </Card>
-</CardGroup>
-
-<Note>
-  **Tempo di lettura**: 8 minuti  
-  **Tempo di implementazione**: 10-15 minuti  
-  **Difficoltà**: ⭐⭐ Facile
-</Note>
+<Frame>
+  <img src="/images/test.png" alt="Schermata test assistente" />
+</Frame>
 
 ---
 
