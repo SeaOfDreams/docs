@@ -24,7 +24,6 @@
           {
             "group": "Caratteristiche Assistente",
             "pages": [
-              "essentials/panoramica",
               "essentials/knowledge-base",
               "essentials/lingua",
               "essentials/messaggio-iniziale",
@@ -55,7 +54,6 @@
             "group": "FAQ",
             "pages": [
               "FAQ/faq"
-              
             ]
           }
         ]
