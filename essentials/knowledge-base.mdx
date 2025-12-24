@@ -5,7 +5,7 @@ description: 'Guida completa per costruire una knowledge base efficace per il tu
 
 # Creazione della Knowledge Base
 
-La Knowledge Base è il **cuore del tuo assistente Grip AI**. È la fonte di tutte le informazioni che l'assistente utilizzerà per rispondere alle domande dei chiamanti. Una knowledge base ben strutturata è la chiave per risposte accurate e conversazioni di qualità.
+La Knowledge Base è il **cuore del tuo assistente Grip AI**. È la fonte principale, insieme al prompt, che l'assistente utilizzerà per rispondere alle domande dei chiamanti. Una knowledge base ben strutturata è la chiave per risposte accurate e conversazioni di qualità.
 
 <Info>
   **Importante**: L'assistente risponde **solo** basandosi sulle informazioni presenti nella knowledge base. Non inventa risposte o utilizza conoscenze generali.
@@ -39,34 +39,33 @@ Grip AI supporta diversi tipi di sorgenti per costruire la tua knowledge base:
 
 ### 1. Link Web
 
-Importa direttamente contenuti dal tuo sito web.
+Importa direttamente contenuti dal tuo sito web o da pagine web specifiche (ad esempio se hai già una Knowledge Base online).
 
 <Steps>
   <Step title="Accedi alla Sezione Knowledge Base">
     Nella dashboard, vai su "Knowledge Base" del tuo assistente
+    
+    ![Knowledge Base](/images/knowledge.png)
   </Step>
   
   <Step title="Aggiungi Sorgente Web">
-    Clicca su "+ Aggiungi Sorgente" → "Link Web"
+   Vai alla sezione degli URLs e clicca su "+ Aggiungi URL"
+    
+    ![Link Web](/images/url.png)
   </Step>
   
   <Step title="Inserisci URL">
-    Incolla l'URL della pagina che vuoi importare
-    
-    ```
-    Esempio: https://www.tuodominio.it/chi-siamo
-    ```
+    Incolla l'URL della/e pagina/e che vuoi importare.
+    Puoi importare una singola pagina web o un intero sito a partire da un determinato URL.
+    Esempio: se inserisco "acmelaminati.com" importerò tutti i sotto-domini a partire da questo URL (acmelaminati.com/prodotti, acmelaminati.com/contatti, ecc.)
+    Clicca poi su "Aggiungi URL"
+ ![Link Web](/images/aggiungiurl.png)
+ Puoi aggiungere quanti URL desideri, più informazioni l'Assistente ha a disposizione, più le sue risposte saranno contestualizzate. 
   </Step>
   
-  <Step title="Configura Importazione">
-    - **Ricorsivo**: Importa anche pagine linkate
-    - **Profondità**: Quanti livelli seguire (1-3)
-    - **Filtri**: Escludi certe sezioni (es. footer, sidebar)
-  </Step>
+
   
-  <Step title="Importa">
-    Clicca "Importa" e attendi l'elaborazione
-  </Step>
+  
 </Steps>
 
 <Tabs>
@@ -79,7 +78,6 @@ Importa direttamente contenuti dal tuo sito web.
     - Guide e tutorial
     
     **Consigli:**
-    - Usa profondità 2 per siti ben strutturati
     - Escludi blog se non pertinente
     - Aggiorna periodicamente se il sito cambia
   </Tab>
@@ -92,42 +90,46 @@ Importa direttamente contenuti dal tuo sito web.
     - Footer e header isolati
     - Pagine di errore
     
-    **Problemi Comuni:**
-    - Troppa profondità (>3) = tempo elaborazione lungo
-    - URL duplicati = confusione AI
+    **Attenzione:**
+   
     - Contenuti obsoleti = risposte errate
   </Tab>
 </Tabs>
 
-### 2. Documenti PDF
+### 2. Documenti 
 
-Carica manuali, guide e documentazione in formato PDF.
+Puoi caricare manuali, schede prodotto, guide e documentazione in generale.
+```markdown
+Formati Supportati:
+- .docx (Microsoft Word)
+- .doc (Word legacy)
+- .txt (Plain text)
+```
 
 <AccordionGroup>
-  <Accordion title="Come Caricare PDF" icon="file-pdf">
+  <Accordion title="Come Caricare Files" icon="file-pdf">
     <Steps>
-      <Step title="Prepara il PDF">
-        - Massimo 10MB per file
-        - Preferibilmente con testo selezionabile (non scansioni)
-        - Rimuovi pagine non necessarie
-      </Step>
+      
       
       <Step title="Upload">
-        Clicca "+ Aggiungi Sorgente" → "Carica PDF"
-        Seleziona il file dal tuo computer
+        Clicca su "Carica File" oppure trascina i file direttamente nell'area di upload scegliendoli tal tuo computer.
+        
+        ![Upload](/images/upload.png)
       </Step>
       
-      <Step title="Attendi Elaborazione">
-        L'AI estrae e analizza il testo (può richiedere 1-3 minuti)
+      <Step title="Aggiungi Descrizione e Conferma">
+        Se lo desideri, aggiungi una descrizione al file e clicca su "Carica"
+        ![Upload](/images/scheda_prodotto.png)
       </Step>
       
-      <Step title="Verifica">
-        Controlla che il contenuto sia stato estratto correttamente
+      <Step title="Elaborazione Documento">
+        L'Assistente elabora il documento e ne assimila il contenuto. Dovresti vedere la scritta verde "Elaborato".
+       ![Upload](/images/elaborato.png)
       </Step>
     </Steps>
   </Accordion>
   
-  <Accordion title="Tipi di PDF Ideali" icon="thumbs-up">
+  <Accordion title="Documenti Ideali" icon="thumbs-up">
     **Ottimi per Knowledge Base:**
     - 📘 Manuali prodotto
     - 📋 Cataloghi servizi
@@ -136,11 +138,9 @@ Carica manuali, guide e documentazione in formato PDF.
     - 🎓 Guide tecniche
     - 📑 Documentazione contrattuale
     
-    **Formato Consigliato:**
+    **Consigli:**
     - Testo digitale (non scansioni)
     - Ben formattato con titoli
-    - Massimo 50 pagine per file
-    - Immagini solo se necessarie
   </Accordion>
   
   <Accordion title="Gestione PDF Scansionati" icon="scanner">
@@ -149,7 +149,7 @@ Carica manuali, guide e documentazione in formato PDF.
     **Opzione 1: OCR Esterno**
     1. Usa un tool OCR (Adobe, ABBYY)
     2. Converte in PDF con testo
-    3. Carica su Grip
+    3. Carica su Grip AI
     
     **Opzione 2: Trascrizione Manuale**
     1. Copia il testo manualmente
@@ -162,36 +162,11 @@ Carica manuali, guide e documentazione in formato PDF.
   </Accordion>
 </AccordionGroup>
 
-### 3. Documenti Word e TXT
 
-Carica documenti di testo in formato DOCX o TXT.
 
-```markdown
-Formati Supportati:
-- .docx (Microsoft Word)
-- .doc (Word legacy)
-- .txt (Plain text)
-- .md (Markdown)
+### 3. Q&A Personalizzate
 
-Dimensione Massima: 10MB per file
-Codifica: UTF-8 raccomandato per TXT
-```
-
-<Tip>
-  **Consiglio Pro**: I file TXT sono ideali per FAQ strutturate. Usa un formato semplice come:
-  
-  ```
-  Q: Quali sono i vostri orari?
-  A: Siamo aperti dal lunedì al venerdì, dalle 9:00 alle 18:00.
-  
-  Q: Come posso contattarvi?
-  A: Puoi chiamarci al numero 02 1234567 o scriverci a info@esempio.it
-  ```
-</Tip>
-
-### 4. Q&A Personalizzate
-
-Crea coppie domanda-risposta specifiche direttamente nell'interfaccia.
+Crea coppie domanda-risposta specifiche per le domande più ricorrenti o sulle quali vuoi una risposta univoca da parte dell'Assistente. 
 
 <Steps>
   <Step title="Apri Editor Q&A">
