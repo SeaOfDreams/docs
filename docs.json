@@ -9,6 +9,12 @@
     "dark": "#6B5AC9"
   },
   "favicon": "/favicon.svg",
+  "redirects": [
+    {
+      "source": "/guida-rapida",
+      "destination": "/essentials/crea-assistente-vocale"
+    }
+  ],
   "navigation": {
     "tabs": [
       {
@@ -17,7 +23,7 @@
           {
             "group": "Primi passi",
             "pages": [
-              "guida-rapida",
+              "essentials/crea-assistente-vocale",
               "essentials/prompt",
               "essentials/impostazioni-avanzate",
               "essentials/aggiungi-credito",
