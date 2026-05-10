@@ -133,6 +133,10 @@
         "tab": "Documentazione",
         "groups": [
           {
+            "group": "Grip AI Academy",
+            "pages": ["index"]
+          },
+          {
             "group": "Primi passi",
             "pages": [
               "primi-passi/crea-assistente-vocale",
