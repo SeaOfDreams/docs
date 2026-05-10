@@ -12,7 +12,119 @@
   "redirects": [
     {
       "source": "/guida-rapida",
-      "destination": "/essentials/crea-assistente-vocale"
+      "destination": "/primi-passi/crea-assistente-vocale"
+    },
+    {
+      "source": "/essentials/crea-assistente-vocale",
+      "destination": "/primi-passi/crea-assistente-vocale"
+    },
+    {
+      "source": "/essentials/prompt",
+      "destination": "/primi-passi/prompt"
+    },
+    {
+      "source": "/essentials/impostazioni-avanzate",
+      "destination": "/primi-passi/impostazioni-avanzate"
+    },
+    {
+      "source": "/essentials/aggiungi-credito",
+      "destination": "/primi-passi/aggiungi-credito"
+    },
+    {
+      "source": "/essentials/testare-agente",
+      "destination": "/primi-passi/testare-agente"
+    },
+    {
+      "source": "/essentials/monitora-conversazioni",
+      "destination": "/primi-passi/monitora-conversazioni"
+    },
+    {
+      "source": "/essentials/knowledge-base",
+      "destination": "/caratteristiche-assistente/knowledge-base"
+    },
+    {
+      "source": "/essentials/procedure",
+      "destination": "/caratteristiche-assistente/procedure"
+    },
+    {
+      "source": "/essentials/modificare-agente-sandbox",
+      "destination": "/caratteristiche-assistente/modificare-agente-sandbox"
+    },
+    {
+      "source": "/essentials/dizionario-pronuncia",
+      "destination": "/caratteristiche-assistente/dizionario-pronuncia"
+    },
+    {
+      "source": "/phone/generale",
+      "destination": "/primi-passi/generale"
+    },
+    {
+      "source": "/phone/numero-dedicato",
+      "destination": "/numeri-di-telefono/numero-dedicato"
+    },
+    {
+      "source": "/phone/numeri-locali",
+      "destination": "/numeri-di-telefono/numeri-locali"
+    },
+    {
+      "source": "/phone/collega-centralino",
+      "destination": "/numeri-di-telefono/collega-centralino"
+    },
+    {
+      "source": "/tools/calendar",
+      "destination": "/strumenti/calendar"
+    },
+    {
+      "source": "/tools/inoltro-chiamate",
+      "destination": "/strumenti/inoltro-chiamate"
+    },
+    {
+      "source": "/tools/integrazioni-api",
+      "destination": "/strumenti/integrazioni-api"
+    },
+    {
+      "source": "/tools/pre-call-api",
+      "destination": "/strumenti/pre-call-api"
+    },
+    {
+      "source": "/tools/inoltro-transcript",
+      "destination": "/strumenti/inoltro-transcript"
+    },
+    {
+      "source": "/tools/email-post-chiamata",
+      "destination": "/strumenti/email-post-chiamata"
+    },
+    {
+      "source": "/tools/webhook-post-chiamata",
+      "destination": "/strumenti/webhook-post-chiamata"
+    },
+    {
+      "source": "/tools/windsurf",
+      "destination": "/strumenti/windsurf"
+    },
+    {
+      "source": "/tools/cursor",
+      "destination": "/strumenti/cursor"
+    },
+    {
+      "source": "/tools/claude-code",
+      "destination": "/strumenti/claude-code"
+    },
+    {
+      "source": "/outbound/caricare-liste-audience",
+      "destination": "/chiamate-outbound/caricare-liste-audience"
+    },
+    {
+      "source": "/outbound/utilizzare-webhook",
+      "destination": "/chiamate-outbound/utilizzare-webhook"
+    },
+    {
+      "source": "/outbound/lanciare-campagna-outbound",
+      "destination": "/chiamate-outbound/lanciare-campagna-outbound"
+    },
+    {
+      "source": "/outbound/monitoraggio-risultati",
+      "destination": "/chiamate-outbound/monitoraggio-risultati"
     }
   ],
   "navigation": {
@@ -23,51 +135,51 @@
           {
             "group": "Primi passi",
             "pages": [
-              "essentials/crea-assistente-vocale",
-              "essentials/prompt",
-              "essentials/impostazioni-avanzate",
-              "essentials/aggiungi-credito",
-              "essentials/testare-agente",
-              "phone/generale",
-              "essentials/monitora-conversazioni"
+              "primi-passi/crea-assistente-vocale",
+              "primi-passi/prompt",
+              "primi-passi/impostazioni-avanzate",
+              "primi-passi/aggiungi-credito",
+              "primi-passi/testare-agente",
+              "primi-passi/generale",
+              "primi-passi/monitora-conversazioni"
             ]
           },
           {
             "group": "Caratteristiche Assistente",
             "pages": [
-              "essentials/knowledge-base",
-              "essentials/procedure",
-              "essentials/modificare-agente-sandbox",
-              "essentials/dizionario-pronuncia"
+              "caratteristiche-assistente/knowledge-base",
+              "caratteristiche-assistente/procedure",
+              "caratteristiche-assistente/modificare-agente-sandbox",
+              "caratteristiche-assistente/dizionario-pronuncia"
             ]
           },
           {
             "group": "Strumenti",
             "pages": [
-              "tools/calendar",
-              "tools/inoltro-chiamate",
-              "tools/integrazioni-api",
-              "tools/pre-call-api",
-              "tools/inoltro-transcript",
-              "tools/email-post-chiamata",
-              "tools/webhook-post-chiamata"
+              "strumenti/calendar",
+              "strumenti/inoltro-chiamate",
+              "strumenti/integrazioni-api",
+              "strumenti/pre-call-api",
+              "strumenti/inoltro-transcript",
+              "strumenti/email-post-chiamata",
+              "strumenti/webhook-post-chiamata"
             ]
           },
           {
             "group": "Chiamate Outbound",
             "pages": [
-              "outbound/caricare-liste-audience",
-              "outbound/utilizzare-webhook",
-              "outbound/lanciare-campagna-outbound",
-              "outbound/monitoraggio-risultati"
+              "chiamate-outbound/caricare-liste-audience",
+              "chiamate-outbound/utilizzare-webhook",
+              "chiamate-outbound/lanciare-campagna-outbound",
+              "chiamate-outbound/monitoraggio-risultati"
             ]
           },
           {
             "group": "Numeri di telefono",
             "pages": [
-              "phone/numero-dedicato",
-              "phone/numeri-locali",
-              "phone/collega-centralino"
+              "numeri-di-telefono/numero-dedicato",
+              "numeri-di-telefono/numeri-locali",
+              "numeri-di-telefono/collega-centralino"
             ]
           },
           {
